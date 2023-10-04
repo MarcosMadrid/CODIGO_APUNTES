@@ -1,0 +1,11 @@
+.azul{
+    color: blue;
+}
+img{
+    width: 150px;
+    height: 100px;
+}
+
+table,  td{
+    border: 1px solid black;
+}

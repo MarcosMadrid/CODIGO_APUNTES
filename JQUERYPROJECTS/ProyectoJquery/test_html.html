@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+
+    <!-- ENLACE DE ARCHIVO DE DISEÑOS -->
+    <link rel="stylesheet" type="text/css" href="test_css.css" /> 
+
+    <!-- COMENTAR  CTRL + K => CTRL + C -->
+    <!-- DESCOMENTAR CTRL + K => CTRL + U -->
+</head>
+
+<body>
+    <h1>Selectores Jquery</h1>
+    <ul>
+        <li>
+            <h2>
+                Accion asociada a ID
+            </h2>
+            <p></p>
+            <button id="button1">Pulsar para algo...</button>
+        </li>
+        <li>
+            <h2>
+                Accion asociada a CLASS
+            </h2>
+            <p></p>
+            <span class="azul">Clase azul span</span>
+            <p></p>
+            <button class="azul">Clase azul button</button>
+        </li>
+        <li>
+            <h2>ACCEDER A UN ELEMENTO QUE ACTIVA LA ACCION ASOCIADA DICHO EVENTO A UNA CLASES/TAGS</h2>
+            <p></p>
+            <ul id="lista_elementos">
+                <li>
+                    Texto 1
+                </li>
+                <li>
+                    Texto 2
+                </li>
+                <li>
+                    Texto 3
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h2>
+                MOUSEOVER EVENTO + ENVENTO SEGUN EL VALOR DEL ATRIBUTO DEL ELEMENTO
+            </h2>
+            <div id="contenedor_de_img_mo">
+                <img src="imgs/img1.jfif" alt="0"/>
+                <img src="imgs/img1.jfif" alt="0"/>
+                <img src="imgs/img1.jfif" alt="0"/>
+                <img src="imgs/img1.jfif" alt="0"/>
+            </div>
+        </li>
+
+        <li>
+            <h2>
+                GUARDAR VALORES EN ELEMENTOS Y EXTRAERLOS
+            </h2>
+            <p></p>
+            <h3>- SUMA </h3>
+            <p></p>
+            <label>Numero 1</label>
+            <input class="input_sm" type="text"></input>
+            <p></p>
+            <label>Numero 2</label>
+            <input class="input_sm" type="text"></input>
+            <p></p>
+            Resultado: <span id="resultado"></span>
+            <p></p>
+            
+            <h3>- TABLA DE MULTIPLICAR CON BUCLE </h3>
+            <label>Numero</label>
+            <input id="input_multiplicar" class="tbl_multiplicar" type="number"></input>
+            <label for="qty">Cantidad</label>
+            <input id="qty" class="tbl_multiplicar" type="number"></input>
+            <table id="tabla_multiplicar"></table>
+        </li>
+
+        <li>
+            <h2>
+                GENERAR ELEMENTOS DOM 
+            </h2>
+            <input type="range" name="" id="rango_imgs" min="1" range="1" max="20">
+            <div id="contenedor_img"></div>
+        </li>
+    </ul>    
+</body>
+
+    <!-- REFERENCIAR A LA LIBRERIA DE JQ -->
+    <script src="../code.jquery.com_jquery-3.7.1.min.js"></script>
+    <!-- REFERENCIAR SCRIPTS EXTERNOS DEL PROYECTO/PLANTILLA -->
+    <script src="test_js.js"></script>
+
+</html> 
