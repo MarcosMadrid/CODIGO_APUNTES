@@ -45,6 +45,7 @@ $(document).ready(function(){
         $("#resultado")[0].innerText = valor1 + valor2;
     });
 
+    // GENERAR HIJOS A UN ELEMENTO CON BUCLE
     $(".tbl_multiplicar").change(function () { 
         var numero =  parseInt($($("#input_multiplicar")[0]).val());
         var qty = parseInt($($("#qty")[0]).val());
@@ -57,14 +58,20 @@ $(document).ready(function(){
         $("#tabla_multiplicar").empty();
         for (let index = 1 ; index < qty + 1; index++) {            
             var row = $("<tr>")
-            var c1 = $("<td>", { "text": numero + " x " + index });
-            var c2 = $("<td>", { "text": numero * index });
+            var c1 = $("<td>", { 
+                "text": numero + " x " + index 
+            });
+            var c2 = $("<td>", { 
+                "text": numero * index 
+            });
+            
             row.append(c1);
             row.append(c2);
-            $("#tabla_multiplicar").append(row)
+            $("#tabla_multiplicar").append(row);
         }
     });
 
+    // GENERADOR DE ELEMENTOS SEGÚN EL DATO DE OTRO ELEMENTO
     $("#rango_imgs").change(function (e) { 
         var numero = parseInt($(this).val());
 
@@ -72,10 +79,33 @@ $(document).ready(function(){
             numero = 0
 
         $("#contenedor_img").empty();
-        for (let index = 0 ; index < qty + 1; index++) {  
-            var img = $("<img>", {"src": "imgs/img1.jfif"})
-            $($("#contenedor_img").children).append((img))
+        for (let index = 0 ; index < numero ; index++) {  
+            var img = $("<img>", {
+                "src": "imgs/img1.jfif"
+            });
+            $("#contenedor_img").append(img);
         }          
+    });
+
+    // CAMBIA ESTILOS DE UN ELEMENTO CADA CIERTO INTERVALO
+    $("#boton_colores").click(function (e) { 
+        
+        setInterval(ColoresRandom, 300); //  setInterval( function , milisgundos);
+
+        function ColoresRandom(){
+            var parrafos = $(".colores_p")
+            parrafo = parrafos.length
+            while (parrafo >= parrafos.length) {
+                parrafo = parseInt(Math.random()*10);
+            }
+            var colores = ["Orange" , "Red" , "Blue" , "Purple", "Yellow"]
+            var color_random = colores.length
+            while (color_random >= colores.length) {
+                color_random = parseInt(Math.random()*10);
+            }
+            $(parrafos[parrafo]).css("color", colores[color_random]);
+        }
+
     });
 });
 
