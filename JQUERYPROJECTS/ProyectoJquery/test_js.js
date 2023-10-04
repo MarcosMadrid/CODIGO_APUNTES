@@ -64,7 +64,7 @@ $(document).ready(function(){
             var c2 = $("<td>", { 
                 "text": numero * index 
             });
-            
+
             row.append(c1);
             row.append(c2);
             $("#tabla_multiplicar").append(row);
@@ -105,7 +105,45 @@ $(document).ready(function(){
             }
             $(parrafos[parrafo]).css("color", colores[color_random]);
         }
+    });
 
+    $("#rango_imgs2").change(function (e) { 
+        var numero = parseInt($(this).val());
+
+        if(isNaN(numero))
+            numero = 0
+
+        $("#lista_img").empty();
+        $("#contenedor_btn").empty();
+        for (let index = 1 ; index < numero +1 ; index++) {  
+
+            var img = $("<img>", {
+                "src": "imgs/img1.jfif",
+            });
+            $(img).data("imagen",index);
+            
+            var btn = $("<button>", {
+                "text": "boton "+ index,
+                "class": "botones_imgs",
+            });
+            $(btn).data("boton",index);
+
+            btn.on("click", function () {
+                $.each($("#lista_img img"), function () { 
+                    if($(this).data("imagen") == index){
+                        $(this).attr("src", "imgs/img2.jfif");
+                    } 
+                });
+            });
+
+            $("#lista_img").append(img);
+            $("#contenedor_btn").append(btn);
+        }        
+    });
+
+   
+    $(".botones_imgs").click(function () { 
+        
     });
 });
 
