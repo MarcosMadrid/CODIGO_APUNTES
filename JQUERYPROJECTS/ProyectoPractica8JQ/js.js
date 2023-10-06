@@ -14,30 +14,24 @@ $(document).ready(function () {
                         });
                         $(select_marca).append(option);
 
-                        $(select_marca).on("select", function () {
-                            ShowResult(this.value)
-                        });
+                        $(select_marca).on("select", ShowResult(this.value));
                      }
                      $("body").append(select_marca)
                      });
                    });
             });                                               
 
-    function ShowResult(marca){
-        $.get("../../Recursos/XML/coches.xml",
-        function (data) {
-            var select_marca = $("<select>" , { "name" : "marcas"})
-            
-            $.each($(data).find("[marca =" + marca + "]"), function (i, coche) {        
-                 
-            });               
-
-        
-        var row = $("<tr>")
-        $.each(alumno.children, function (i, alumno_data) { 
-            var colum = $("<td>", {"text": alumno_data.innerHTML }) 
-            $(row).append(colum);
-        });
-        return tabla.append(row)
+    function ShowResult(option){
+        $.get("../../Recursos/XML/coches.xml"),
+        function (data) {       
+            var coche = $(data).find("coche[idcoche =" + $(option).val() + "]");
+            var modelo = $("<h3>" , { "text" : $(data).find("modelo") })       
+            var marca = $("<h3>" , { "text" : $(data).find("modelo") })   
+            var img = $("<img>" , { "text" : $(data).find("modelo") })     
+            $("body").append(modelo);
+            $("body").append(marca);
+            $("body").append(img);                   
+        }
     }
+    
 });
