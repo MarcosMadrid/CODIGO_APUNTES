@@ -3,8 +3,12 @@ $(document).ready(function () {
     var encabezados = [];
 
 
-    $.get("../../Recursos/XML/clientes.xml",
-    function (data) {            
+
+    $.ajax({
+        url: "https://apicruddepartamentosxml.azurewebsites.net/api/Departamentos",
+        type: "GET",
+        dataType: "XML",
+        success: function (data) {            
             $(tabla).empty();
             encabezados = [];
             $.each(data.children, function (i, data_content) { 
@@ -15,7 +19,7 @@ $(document).ready(function () {
             });
             $("body").append(tabla);
         }
-    );
+    });
 
         function ExtractXML_tabla(nodo){
             if(nodo.parentNode.nodeName == "#document"){
