@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="test_css.css" /> 
     <title>Document</title>
 </head>
 <body>
@@ -23,8 +24,12 @@
     <input type="text" id="salario_doct">
 
     <button id="botoninsert">Insertar DEP</button>
+    
+    <select id="select_esp">Especialidad</select>
+    
+    <hr>
 
-    <table id="tabla_doctores">
+    <table id="tabla_doctores" load="lazy">
         <tr>
             <th>Apellido</th>
             <th>Especialidad</th>

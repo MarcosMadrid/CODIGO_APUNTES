@@ -1,0 +1,20 @@
+table,  td{
+    border: 1px solid black;
+}
+th{
+    border-left: 1px solid black;
+}
+
+select{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+.Cancel{
+    border: 1px solid red;
+}
+
+.Acept{
+    border: 1px solid green;
+}
