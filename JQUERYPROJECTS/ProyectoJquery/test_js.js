@@ -141,9 +141,22 @@ $(document).ready(function(){
         }        
     });
 
-   
-    $(".botones_imgs").click(function () { 
-        
+    //LECTOR DE COCUMENTOS JSON GET
+    $("#leer_json").click(function (e) { 
+        $.getJSON("../../Recursos/JSON/tareas.json",
+            function (data) {
+                $("#container_json").empty();
+                console.log("Leyendo servicio");
+                $.each(data, function (key, value) { 
+                    var li = $("<li>",{
+                        "text" : key + ":" + value
+                    })
+                        $("#container_json").append(li);
+                });
+            }
+        );
     });
+
+    
 });
 
