@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="test_css.css" /> 
+    <link href="../../Recursos/BootStrap/css/bootstrap.css" rel="stylesheet" >
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <select id="select_empleados_ofi"></select>
-    <table id="departamentos"></table>
+    <select id="select_empleados_ofi" class="form-select"></select>
+    <br>
+    <label>Incrementar salario </label><input type="number" id="incremento">
+    <button id="incrementar_salario" class="btn btn-success">OK</button>
+    <br>
+    <table id="departamentos" class="table table-info"></table>
     <table id="empleados"></table>    
-    <table id="empleados_oficios"></table>    
+    <table id="empleados_oficios" class="table"></table>    
+   
+    
 </body>
-    <!-- REFERENCIAR A LA LIBRERIA DE JQ -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- REFERENCIAR SCRIPTS EXTERNOS DEL PROYECTO/PLANTILLA -->
+    <script src="../../Recursos/BootStrap/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+    <script src="../../Recursos/DarkMode/darkmode-js.min.js"></script>
+    <script>
+      function addDarkmodeWidget() {
+        new Darkmode().showWidget();
+      }
+      window.addEventListener('load', addDarkmodeWidget);
+    </script>
     <script src="js.js"></script>
 </html>

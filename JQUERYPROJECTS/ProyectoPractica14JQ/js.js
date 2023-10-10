@@ -73,13 +73,19 @@ $(document).ready(function () {
                     var oficio = $(this).val();
                     GET_EMPLEADOS_OFI(oficio);
                 });
+
+                $("#incrementar_salario").click(function (e) { 
+                    var salario_extra = $("#incremento").val();
+                    var oficio = $("#select_empleados_ofi").val();
+                    IncrementarSalarioOficio(oficio, salario_extra);
+                });
             }
             
         });
     }
 
     function GET_EMPLEADOS_OFI(oficio){
-        var request = "https://apiempleadosaction.azurewebsites.net//api/Empleados/GetEmpleadosOficio/empleadosoficio/"+ oficio;
+        var request = "https://apiempleadosaction.azurewebsites.net/api/Empleados/GetEmpleadosOficio/empleadosoficio/"+ oficio;
         $.getJSON(request,
             function (data) {
                 $("#empleados_oficios").empty();
@@ -93,6 +99,28 @@ $(document).ready(function () {
                 });
             }
         );
+    }
+
+    function IncrementarSalarioOficio(oficio, incremento){
+        request ="https://apiempleadosaction.azurewebsites.net/api/Empleados/IncrementarSalarioOficios/"+ oficio +"/" + incremento;
+        $.ajax({
+            type: "PUT",
+            url: request,                        
+            success: function (response) {
+                Swal.fire({
+                    icon: 'succes',
+                    title: 'Datos guardados',
+                  })
+                GET_EMPLEADOS_OFI(oficio);
+            },
+            error: function(response){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                  })
+            }
+        });
     }
 
 });
