@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Saludo from './componentes/Saludo';
+import Metodos from './componentes/Metodos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Metodos></Metodos>
     <Saludo nombre="Lucia" edad="40"></Saludo>
     <Saludo nombre="Paco" edad="23"></Saludo>
-    
   </React.StrictMode>
 );
 
