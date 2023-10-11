@@ -15,11 +15,28 @@
           <a class="p-2 text-dark" href="pagina2.html">Insertar</a>
         </nav>
       </div>
-    <table id="hospitales_tabla" class="table"></table>
+
+    <table id="hospitales_tabla" class="table">
+      <tr>
+        <th>ID</th>
+        <th>IDHOSPITAL</th>
+        <th>NOMBRE</th>
+        <th>DIRECCION</th>
+        <th>TELÉFONO</th>
+        <th>CAMAS</th>
+      </tr>
+    </table>
     <button id="btn_paginainsert">CREAR HOSPITAL</button>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="../../Recursos/BootStrap/js/bootstrap.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+<script src="../../Recursos/DarkMode/darkmode-js.min.js"></script>
+    <script>
+      function addDarkmodeWidget() {
+        new Darkmode().showWidget();
+      }
+      window.addEventListener('load', addDarkmodeWidget);
+    </script>
 <script src="js1.js"></script>
 </html>

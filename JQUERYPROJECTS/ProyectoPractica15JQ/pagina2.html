@@ -15,23 +15,26 @@
           <a class="p-2 text-dark" href="pagina2.html">Insertar</a>
         </nav>
       </div>
-    <form class="form-horizontal">
-        <div class="row">
-            <div class="form-group">
-                <input type="number" id="id_hospital" placeholder="ID" class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="text" id="nomb_hospital" placeholder="NOMBRE" class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="text" id="dir_hospital" placeholder="DIRECCION" class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="text" id="tel_hospital" placeholder="TELÉFONOS" class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="number" id="camas_hospital" placeholder="CAMAS" class="form-control">
-            </div>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">IDHOSPITAL</label>
+            <input type="number" id="id_hospital" placeholder="ID" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">NOMBRE</label>
+            <input type="text" id="nomb_hospital" placeholder="NOMBRE" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">DIRECCIÓN</label>
+            <input type="text" id="dir_hospital" placeholder="DIRECCION" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">TELÉFONO</label>
+            <input type="text" id="tel_hospital" placeholder="TELÉFONO" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">CAMAS</label>
+            <input type="number" id="camas_hospital" placeholder="CAMAS" class="form-control">
         </div>
         <button type="button" class="btn btn-succes"  id="btn_insert_hospital">INSERTAR HOSPITAL</button>
     </form>
@@ -40,5 +43,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="../../Recursos/BootStrap/js/bootstrap.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+<script src="../../Recursos/DarkMode/darkmode-js.min.js"></script>
+    <script>
+      function addDarkmodeWidget() {
+        new Darkmode().showWidget();
+      }
+      window.addEventListener('load', addDarkmodeWidget);
+    </script>
 <script src="js2.js"></script>
 </html>

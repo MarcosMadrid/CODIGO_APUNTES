@@ -4,10 +4,12 @@ const params_url = new URL(window.location.href).searchParams;
 
     if (params_url.has('idhospital')){
         GET_Hospital(params_url.get('idhospital'));   
+        
         if(params_url.has('edit')){
             $("#id_hospital").prop("disabled",true);
             $("#btn_insert_hospital").text("Modificar hospital");
         }
+
         if(params_url.has('detalles')){
             $("input").prop("disabled",true);
             $("#btn_insert_hospital").css("display","none");
@@ -43,7 +45,7 @@ const params_url = new URL(window.location.href).searchParams;
 
 
     function UPDATE_Hospital(dataJson,type){
-        var request = "webresources/hospitales/post";
+        var request = "webresources/hospitales/" + type.toLowerCase();
         $.ajax({
             type: type,
             url: url + request,
@@ -54,15 +56,15 @@ const params_url = new URL(window.location.href).searchParams;
                     icon: 'succes',
                     title: 'Todo correcto',
                     text: 'Hospital creado',
-                    footer: '<button class="volver" >Volver a la página principal</button>'
-                  })
+                    footer: "<a href='inicio.html' >Volver a la página principal</a>"
+                });
             },
             error: function(response){
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Fallo al crear hospital',
-                  })
+                });
             }
         });
     }
@@ -71,8 +73,8 @@ const params_url = new URL(window.location.href).searchParams;
         var request = "webresources/hospitales/"+idhospital;
         $.getJSON(url+request,
             function (hospital) {
-                $("#id_hospital").val(hospital.idhospital)
-                $("#nomb_hospital").val(hospital.nombre)
+                $("#id_hospital").val(hospital.idhospital);
+                $("#nomb_hospital").val(hospital.nombre);
                 $("#dir_hospital").val(hospital.direccion);
                 $("#tel_hospital").val(hospital.telefono);
                 $("#camas_hospital").val(hospital.camas);

@@ -8,7 +8,6 @@ $(document).ready(function () {
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: 'Ir',
-            denyButtonText: `Cerrar`,
           }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
@@ -36,6 +35,17 @@ $(document).ready(function () {
                     var btn_edit = $("<button>" ,{ "text" : "Editar", "class" : "btn btn-info"});
                     var btn_delete = $("<button>" ,{ "text" : "Eliminar", "class" : "btn btn-danger" , "value" : hospitales.idhospital})
 
+                    
+                    btn_detalles.click(function (e) { 
+                        var idhospital = hospitales.idhospital                     
+                        window.location= "http://127.0.0.1:5500/JQUERYPROJECTS/ProyectoPractica15JQ/pagina2.HTML?idhospital="+idhospital +"&detalles=true";                        
+                    });
+                    
+                    btn_edit.click(function (e) { 
+                        var idhospital = hospitales.idhospital                     
+                        window.location= "http://127.0.0.1:5500/JQUERYPROJECTS/ProyectoPractica15JQ/pagina2.HTML?idhospital="+idhospital + "&edit=true";                      
+                    });
+                    
                     btn_delete.click(function (e) { 
                         var idhospital = $(this).val();
                         Swal.fire({
@@ -45,27 +55,9 @@ $(document).ready(function () {
                             confirmButtonText: 'Eliminar',                            
                           }).then((result) => {
                             if (result.isConfirmed) 
-                                DELETE_Hospitales(idhospital);    
-                        });
-                                           
+                                DELETE_Hospitale(idhospital);    
+                        });                                           
                     });
-
-                    btn_detalles.click(function (e) { 
-                        var idhospital = hospitales.idhospital                     
-                        window.location= "http://127.0.0.1:5500/JQUERYPROJECTS/ProyectoPractica15JQ/pagina2.HTML?idhospital="+idhospital +"&detalles=true";
-                        
-                    });
-
-                    btn_delete.click(function (e) { 
-                        var idhospital = $(this).val();
-                        DELETE_Hospitales(idhospital);                        
-                    });
-
-                    btn_edit.click(function (e) { 
-                        var idhospital = hospitales.idhospital                     
-                        window.location= "http://127.0.0.1:5500/JQUERYPROJECTS/ProyectoPractica15JQ/pagina2.HTML?idhospital="+idhospital + "&edit=true";                      
-                    });
-
 
                     $(row).append(btn_detalles);
                     $(row).append(btn_edit);
@@ -77,7 +69,7 @@ $(document).ready(function () {
         );
     }
 
-    function DELETE_Hospitales(idhospital){
+    function DELETE_Hospitale(idhospital){
         var request = "/webresources/hospitales/delete/" +idhospital;
         $.ajax({
             type: "DELETE",
@@ -99,8 +91,5 @@ $(document).ready(function () {
             }
         });
     }
-
-    function DETAILS_Hospital(idhospital) {  }
-
 
 });
