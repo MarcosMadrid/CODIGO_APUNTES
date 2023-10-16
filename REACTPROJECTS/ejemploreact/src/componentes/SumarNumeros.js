@@ -1,11 +1,13 @@
 import { useRef } from "react";
 
 
-function SumarNumeros(){
+function SumarNumeros(props){
     var input_numero1 = useRef();
-    var input_numero2 = useRef();
+    var input_numero2 = useRef();   
+
     var solucion = useRef();
     var estilo;
+
 
     const Sumar = function(){
         var numero1 = parseInt(input_numero1.current.value);

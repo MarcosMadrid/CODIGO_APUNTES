@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './componentes/App'
-import SumarNumeros from './componentes/SumarNumeros';
 import reportWebVitals from './reportWebVitals';
+import MatematicasPadre from './componentes/MatematicasPadre';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <SumarNumeros numero1 ="77" numero2="22"/>
+    <MatematicasPadre/>
   </React.StrictMode>
 );
 
