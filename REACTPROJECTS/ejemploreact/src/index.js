@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import App from './componentes/App'
+import SumarNumeros from './componentes/SumarNumeros';
 import reportWebVitals from './reportWebVitals';
-import Saludo from './componentes/Saludo';
-import Metodos from './componentes/Metodos';
-import DobleNumerin from './componentes/DobleNumerin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <DobleNumerin/>
-    {/* <Metodos></Metodos>
-    <Saludo nombre="Lucia" edad="40"></Saludo>
-    <Saludo nombre="Paco" edad="23"></Saludo> */}
+    <App />
+    <SumarNumeros/>
   </React.StrictMode>
 );
 
