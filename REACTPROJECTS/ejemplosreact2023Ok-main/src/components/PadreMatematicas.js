@@ -3,7 +3,7 @@ import Matematicas from "./Matematicas";
 function PadreMatematicas() {
     const mostrarTriple = (num) => {
         var triple = parseInt(num) * 3;
-        console.log("Triple " + triple);
+        alert("Triple " + triple);
     }
 
     return (<div>

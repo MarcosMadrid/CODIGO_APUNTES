@@ -4,7 +4,7 @@ function Matematicas(props) {
 
     const mostrarDoble = () => {
         var doble = parseInt(numero) * 2;
-        console.log("Doble: " + doble);
+        alert("Doble: " + doble);
     }
 
     return (<div>

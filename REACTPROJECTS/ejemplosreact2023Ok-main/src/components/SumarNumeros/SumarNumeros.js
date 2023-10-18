@@ -1,12 +1,12 @@
 import batman from '../../assets/images/batman.png';
 import './SumarNumeros.css';
 
-function SumarNumeros(props) {
-    const sumar = (num1, num2) => {
-        num1 = parseInt(props.numero1);
-        num2 = parseInt(props.numero2);
+function SumarNumeros() {
+    const sumar = (numero1, numero2) => {
+        var num1 = parseInt(numero1);
+        var num2 = parseInt(numero2);
         var resultado = num1 + num2;
-        console.log("Suma: " + resultado);
+        alert("Suma: " + resultado);
     }
 
     var imageSize = {
