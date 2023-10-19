@@ -1,0 +1,12 @@
+table{
+    float: left;
+    margin-left: 20px;
+    padding: 4px;
+}
+
+ul li {
+    display: inline;
+}
+table{
+    border: 1;
+}

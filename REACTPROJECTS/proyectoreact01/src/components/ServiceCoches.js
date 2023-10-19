@@ -25,7 +25,7 @@ export default class ServiceCoches extends Component{
             Object.values(coche).forEach((value, valueIndex) => {
                 let cell = <td key={valueIndex}>{value}</td>;
                 if(valueIndex === Object.values(coche).length - 1)
-                    cell = <td key={valueIndex}><img src={value} style={{width:'50px',height:'50px'}}/></td>;                    
+                    cell = <td key={valueIndex}><img src={value} style={{width:'50px',height:'50px'}} alt={index}/></td>;                    
                 cells.push(cell);
             });  
             let row = (<tr key={index}><td>{index}</td>{cells}</tr>);

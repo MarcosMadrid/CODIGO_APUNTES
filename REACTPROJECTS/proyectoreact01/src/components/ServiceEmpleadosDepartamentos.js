@@ -1,6 +1,9 @@
 import { Component, createRef } from "react";
+import Oficios from "./EmpleadosComponents/Oficios";
+import Salarios from "./EmpleadosComponents/Salarios";
 import Global from "../Global";
 import axios from "axios";
+import "./EmpleadosComponents/EmpleadosComponents.css";
 
 export default class ServiceEmpleadosDepartamentos extends Component{
     urlApiEmpleados = Global.urlApiEmpleados;
@@ -9,7 +12,8 @@ export default class ServiceEmpleadosDepartamentos extends Component{
 
     state={
         empleados : [],
-        departamentos : []
+        departamentos : [],
+        childComponents : []
     }
 
     GetEmpleados= ()=>{
@@ -44,6 +48,20 @@ export default class ServiceEmpleadosDepartamentos extends Component{
         });        
     }
 
+    GetOficios= (oficio)=>{
+        let request = 'api/Empleados/EmpleadosOficio/' + oficio;
+        return axios.get(this.urlApiEmpleados + request ).then(response=>{
+            return(response.data);
+        });        
+    }
+
+    GetSalarios= (salario)=>{
+        let request = 'api/Empleados/EmpleadosSalario/' + salario;
+        return axios.get(this.urlApiEmpleados + request ).then(response=>{
+            return(response.data);
+        });        
+    }
+
     OptionsDepartamentos= ()=>{
         let options = [];
         this.state.departamentos.map((departamento, index)=>{
@@ -51,13 +69,50 @@ export default class ServiceEmpleadosDepartamentos extends Component{
         })
         return(options);
     }
+    
+    CreateOficios = (oficio)=>{    
+        this.state.childComponents.push(<Oficios 
+                oficio={oficio} 
+                GetOficios={this.GetOficios} 
+                index_father={this.state.childComponents.length}
+            />);
+        this.setState({
+            childComponents : this.state.childComponents
+        })
+    }
+
+    CreateSalarios = (salario)=>{    
+        this.state.childComponents.push(<Salarios 
+                salario={salario} 
+                GetSalarios={this.GetSalarios} 
+                index_father={this.state.childComponents.length} 
+            />);
+        this.setState({
+            childComponents : this.state.childComponents
+        })
+    }
+
+    DeleteChildComponent = (index)=>{
+        this.state.childComponents.splice(index,1)
+        this.setState({
+            childComponents : this.state.childComponents
+        })
+    }
 
     ListEmpleados = ()=>{
         let tbody = [];
         this.state.empleados.map((empleado, index) => {   
             let cells = [];
-            Object.values(empleado).forEach((value, valueIndex) => {
-                let cell = <td key={valueIndex}>{value}</td>;               
+            Object.keys(empleado).forEach((key, valueIndex) => {
+                let cell = null
+                cell = <td key={valueIndex}>{empleado[key]}</td>;    
+
+                if(key === "oficio")
+                    cell = <td key={valueIndex} onClick={() => this.CreateOficios(empleado[key])}>{empleado[key]}</td>;   
+                
+                if(key === "salario")
+                    cell = <td key={valueIndex} onClick={() => this.CreateSalarios(empleado[key])}>{empleado[key]}</td>;   
+                
                 cells.push(cell);
             });  
             let row = (<tr key={index}><td>{index}</td>{cells}</tr>);
@@ -65,6 +120,7 @@ export default class ServiceEmpleadosDepartamentos extends Component{
         });
         return(tbody)
     }
+
 
     componentDidMount = ()=>{
         this.GetEmpleados();
@@ -81,11 +137,21 @@ export default class ServiceEmpleadosDepartamentos extends Component{
             <option key={-1}>Ninguno</option>
             {this.OptionsDepartamentos()}
             </select>
-            <table> 
+            <p></p>
+            <table border={1}> 
                 <tbody>
                     {this.ListEmpleados()}
                 </tbody>
             </table>
+            {
+                this.state.childComponents.map((component, index)=>{
+                    
+                    return(<div key={index}>
+                            <button onClick={()=>this.DeleteChildComponent(index)}>Cerrar</button>
+                            {component}
+                        </div>);
+                })
+            }
         </div>);
     }
 }
