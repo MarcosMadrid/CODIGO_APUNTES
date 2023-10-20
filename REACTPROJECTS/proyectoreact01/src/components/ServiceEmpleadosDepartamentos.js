@@ -72,10 +72,10 @@ export default class ServiceEmpleadosDepartamentos extends Component{
     
     CreateOficios = (oficio)=>{    
         this.state.childComponents.push(<Oficios 
-                oficio={oficio} 
-                GetOficios={this.GetOficios} 
-                index_father={this.state.childComponents.length}
-            />);
+                                            oficio={oficio} 
+                                            GetOficios={this.GetOficios} 
+                                            index_father={this.state.childComponents.length}
+                                        />);
         this.setState({
             childComponents : this.state.childComponents
         })
@@ -83,13 +83,13 @@ export default class ServiceEmpleadosDepartamentos extends Component{
 
     CreateSalarios = (salario)=>{    
         this.state.childComponents.push(<Salarios 
-                salario={salario} 
-                GetSalarios={this.GetSalarios} 
-                index_father={this.state.childComponents.length} 
-            />);
+                                            salario={salario} 
+                                            GetSalarios={this.GetSalarios} 
+                                            index_father={this.state.childComponents.length} 
+                                        />);
         this.setState({
             childComponents : this.state.childComponents
-        })
+        });
     }
 
     DeleteChildComponent = (index)=>{

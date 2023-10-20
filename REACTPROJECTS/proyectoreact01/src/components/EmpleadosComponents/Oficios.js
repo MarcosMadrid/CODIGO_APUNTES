@@ -3,7 +3,6 @@ import Global from "../../Global";
 import "./EmpleadosComponents.css";
 
 export default class Oficios extends Component{
-    urlApiEmpleados = Global.urlApiEmpleados;
     oficio = this.props.oficio;
     index_father = this.props.index_father;
     state={

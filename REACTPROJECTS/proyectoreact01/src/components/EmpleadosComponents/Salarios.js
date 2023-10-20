@@ -3,7 +3,6 @@ import Global from "../../Global";
 import "./EmpleadosComponents.css";
 
 export default class Salarios extends Component{s
-    urlApiEmpleados = Global.urlApiEmpleados;
     salario = this.props.salario;
     index_father = this.props.index_father;
     state={
