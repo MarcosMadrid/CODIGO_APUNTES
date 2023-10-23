@@ -1,26 +1,43 @@
 import {Component} from 'react';
 
+
 export default class Collatz extends Component{
-    numero = this.props.numero
+    numero = parseInt(this.props.numero);
 
-    serie = []
-
+    state ={
+        serie : []
+    }
+   
     TeoremaCollatz=()=>{
-        this.serie = [];
+        this.state.serie = [];
         while(this.numero > 1){
-            this.serie.push(this.numero);
             if(this.numero%2 === 0){
                 this.numero = this.numero / 2
             }else{
-                this.numero * 3 + 1 
+                this.numero = this.numero * 3 + 1 
             }
+            this.state.serie.push(this.numero);
+        }
+        this.setState({
+            serie : this.state.serie
+        })
+        console.log(this.state.serie)
+    }
+    
+    componentDidMount=()=>{
+        this.TeoremaCollatz();
+    }
+
+    componentDidUpdate = (before)=>{
+        if(before.numero !== this.props.numero){
+            this.TeoremaCollatz();
         }
     }
 
     render(){
         return(<ul>
                 {
-                  this.serie.map((value, index)=>{
+                  this.state.serie.map((value, index)=>{
                     return(<li>{value}</li>)
                   })
                 }
