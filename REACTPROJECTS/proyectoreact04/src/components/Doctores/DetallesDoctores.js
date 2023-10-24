@@ -4,18 +4,51 @@ import axios from 'axios';
 
 export default class DetallesDoctores extends Component{
     urlDoctoresAPI = Globals.urlDoctoresAPI;
-    doctor_data = [];
+
+    state ={
+        doctor_data : []
+    }
     
     GetDoctor=()=>{
-        let request = '/api/Doctores/' + this.props.idDoctor; 
+        let request = '/api/Doctores/' + this.props.id_doctor; 
         axios.get(this.urlDoctoresAPI + request).then(response=>{
-            this.doctor_data = response.data;
-        })
+            this.setState({
+                doctor_data : response.data
+            });
+        });
+    }
+
+    componentDidMount=()=>{
+        this.GetDoctor();
+    }
+
+    componentDidUpdate = (before)=>{
+       if(before.id_doctor !== this.props.id_doctor)
+            this.GetDoctor();
     }
 
     render(){
         return(<div>
-                {this.doctor_data}
+            <table className="table">
+                <thead>
+                    <tr>
+                    {
+                        Object.keys(this.state.doctor_data).map((key,index)=>{
+                            return(<th key={key} scope='col'>{key.toUpperCase()}</th>);
+                        })
+                    }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    {
+                        Object.values(this.state.doctor_data).map((value,index)=>{
+                            return(<td key={value}>{value}</td>);
+                        })                        
+                    }
+                    </tr>
+                </tbody>
+            </table>
             </div>)
     }
 

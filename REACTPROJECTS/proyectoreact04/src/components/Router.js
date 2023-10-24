@@ -5,6 +5,9 @@ import axios from 'axios';
 import Home from "./Home";
 import Globals from "../Globals";
 import Doctores from "./Doctores/Doctores";
+import DetallesDoctores from "./Doctores/DetallesDoctores";
+import AyadirHospital from "./Hospitales/AyadirHospital";
+import Hospitales from "./Hospitales/Hospitales";
 
 export default class Router extends Component{
     urlHospitalesAPI = Globals.urlHospitalesAPI;
@@ -34,6 +37,20 @@ export default class Router extends Component{
             return(<Doctores idhospital={idhospital}/>);
         }
 
+        function RedirectDetallesDoctor(){
+            let {id_doctor} = useParams();
+
+            return(<DetallesDoctores id_doctor={id_doctor}/>)
+        }
+
+        function RedirectAyadirDoctor(){
+            return(<AyadirHospital/>)
+        }
+
+        function RedirectHospitales(){
+            return(<Hospitales/>)
+        }
+
         return(
             <BrowserRouter>        
                 <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -43,32 +60,40 @@ export default class Router extends Component{
                         <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul className="navbar-nav">
-                            <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="/"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Lista Hospitales
-                            </a>
-                            <ul className="dropdown-menu">
-                                {
-                                    this.state.hospitales.map((hospital, index)=>{
-                                        return(<li key={index}>
-                                            <NavLink 
-                                                className = "dropdown-item" 
-                                                to = {"/hospital/"+hospital.idhospital}>
-                                                {hospital.nombre.toUpperCase()}
-                                            </NavLink>
-                                        </li>);
-                                    })
-                                }
+                            <ul className="navbar-nav">
+                                <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Lista Hospitales
+                                </a>
+                                <ul className="dropdown-menu">
+                                    {
+                                        this.state.hospitales.map((hospital, index)=>{
+                                            return(<li key={index}>
+                                                <NavLink 
+                                                    className = "dropdown-item" 
+                                                    to = {"/hospital/"+hospital.idhospital}>
+                                                    {hospital.nombre.toUpperCase()}
+                                                </NavLink>
+                                            </li>);
+                                        })
+                                    }
+                                    <li><hr className="dropdown-divider"/></li>
+                                    <li><NavLink className="dropdown-item" to="/hospitales">Ver Hospitales</NavLink></li>          
+                                </ul>
+                                </li>
                             </ul>
-                            </li>
-                        </ul>
+                            <a className="nav-link" href="/hospital/añadir/">
+                                AñadirDoctor
+                            </a>                                                                                      
                         </div>
                     </div>
                 </nav>
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/hospital/:idhospital" element={<RedirectDoctores/>}/>
+                    <Route path="/doctor/detalles/:id_doctor" element={<RedirectDetallesDoctor/>}/>
+                    <Route path="/hospital/añadir/" element={<RedirectAyadirDoctor/>}/>
+                    <Route path="/hospitales" element={<RedirectHospitales/>}/>
                 </Routes>
             </BrowserRouter>
         )
