@@ -52,7 +52,11 @@ export default class Departamentos extends Component{
                                     cells.push(<td key={index_value}>{value}</td>);
                                 });
                                 return(<tr key={index_dept}>{cells}
-                                    <NavLink className='btn btn-primary'  to={"/departamento/" + departamento.numero}> Detalles </NavLink>
+
+                                    <td><NavLink className='btn btn-primary'  to={"/departamento/" + departamento.numero}> Detalles </NavLink></td>
+                                    <td><NavLink className='btn btn-danger'   to={"/departamento/eliminar/" + departamento.numero}> Eliminar </NavLink></td>
+                                    <td><NavLink className='btn btn-info' to={"/departamento/modificar/" + departamento.numero}> Modificar </NavLink></td>
+
                                 </tr>);
                             })
                         }                    
