@@ -5,8 +5,9 @@ import Home from './Home';
 import MenuCoches from './MenuCoches';
 import Coches from './Coches/Coches';
 import CocheDetalles from './Coches/CocheDetalles';
-import CocheEliminar from './Coches/CocheElimina';
+import CocheEliminar from './Coches/CocheEliminar';
 import CocheModificar from './Coches/CocheModificar';
+import CocheAyadir from './Coches/CocheAyadir';
 
 export default class Router extends Component{
     render(){
@@ -33,6 +34,10 @@ export default class Router extends Component{
             return(<CocheModificar id_coche={id_coche}/>);
         }
 
+        function Redirect_CocheAyadir(){
+            return(<CocheAyadir/>);
+        }
+
         return(<BrowserRouter>
             <MenuCoches/>
             <Routes>
@@ -41,7 +46,8 @@ export default class Router extends Component{
                 <Route path='/coches/:id_coche' element={<Redirect_CocheDetalles/>}/>
                 <Route path='/coches/eliminar/:id_coche' element={<Redirect_CocheEliminar/>}/>
                 <Route path='/coches/modificar/:id_coche' element={<Redirect_CocheModificar/>}/>
+                <Route path='/coches/añadir/' element={<Redirect_CocheAyadir/>}/>
             </Routes>
-        </BrowserRouter>)
+        </BrowserRouter>);
     }
 }

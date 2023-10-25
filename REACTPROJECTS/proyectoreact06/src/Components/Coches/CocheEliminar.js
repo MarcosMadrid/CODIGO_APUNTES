@@ -3,6 +3,7 @@ import Globals from "../../Globals";
 import axios from "axios";
 import Swal from 'sweetalert2'
 
+
 export default class CocheEliminar extends Component{
     urlCochesAPI = Globals.urlCochesAPI;
 
@@ -27,12 +28,14 @@ export default class CocheEliminar extends Component{
     }
 
     Delete_Coche=()=>{
-        var request = 'api/coches/deletecoche/' + this.props.id_coche;
-        axios.post(this.urlCochesAPI + request).then(response=>{
+        var request = 'api/Coches/DeleteCoche/' + this.state.coche.idCoche;
+        axios.delete(this.urlCochesAPI + request).then(response=>{
             Swal.fire({
                 icon: 'success',
                 title: 'Eliminado',
-                text: 'Se ha eliminado el coche:' + this.props.id_coche,
+                text: 'Se ha eliminado el coche:' + this.state.coche.idCoche
+            }).then(function(){
+               window.location.replace(window.location.host);
             });
         }).catch(error=>{
             Swal.fire({
@@ -44,7 +47,8 @@ export default class CocheEliminar extends Component{
         });
     }
 
-    Btn_Delete=()=>{
+    Btn_Delete=(e)=>{
+        e.preventDefault();
         Swal.fire({
             title: 'Desea eliminar el coche?',
             showDenyButton: true,
@@ -75,7 +79,7 @@ export default class CocheEliminar extends Component{
                 {
                     Object.keys(this.state.coche).map((key, index_key)=>{
                         return( 
-                            <li className="list-group-item d-flex justify-content-between lh-sm">
+                            <li key={index_key} className="list-group-item d-flex justify-content-between lh-sm">
                                 <div>
                                     <h6 className="my-0">{key.toUpperCase()}</h6>                    
                                 </div>
@@ -85,7 +89,7 @@ export default class CocheEliminar extends Component{
                 }                                       
                 </ul>
                 <form className="card p-1">                    
-                    <button type="submit" onClick={()=>this.Btn_Delete} className="btn btn-danger">Eliminar Coche</button>                   
+                    <button type="submit" onClick={this.Btn_Delete} className="btn btn-danger">Eliminar Coche</button>                   
                 </form>
             </div>
         </div>);
