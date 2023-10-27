@@ -49,7 +49,7 @@ export default class Hospitales extends Component{
         });
 
         this.setState({
-            hospitales_empleados : <EmpleadosDetalles id_hospitales={id_hospitales}/>
+            hospitales_empleados : <EmpleadosDetalles id_hospitales={id_hospitales} />
         });        
     }
 

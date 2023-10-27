@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import axios from 'axios';
 import Globals from '../Globals';
+import InputSalario from './InputSalario';
 
 export default class EmpleadosDetalles extends Component{
 
@@ -20,8 +21,10 @@ export default class EmpleadosDetalles extends Component{
             });
         }).catch(error=>{
             console.log(error.message);
-        });
+        });        
     }
+
+
 
     Render_DetallesEmpleados=()=>{
         if(this.state.empleados === null)
@@ -51,6 +54,12 @@ export default class EmpleadosDetalles extends Component{
         </table>);
     }
 
+    Render_SalarioInput= ()=>{
+        if(this.state.empleados === null)
+            return;
+        return(<InputSalario id_hospitales={this.props.id_hospitales} GET_TrabajadoresHospital={this.GET_TrabajadoresHospital}/>)
+    }
+
     componentDidMount = ()=>{
         this.GET_TrabajadoresHospital();
     }
@@ -64,6 +73,7 @@ export default class EmpleadosDetalles extends Component{
     render(){
         return(<div>
             {this.Render_DetallesEmpleados()}
+            {this.Render_SalarioInput()}
         </div>);
     }
 }
