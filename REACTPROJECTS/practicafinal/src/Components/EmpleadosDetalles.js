@@ -9,7 +9,11 @@ export default class EmpleadosDetalles extends Component{
     }
 
     GET_TrabajadoresHospital=()=>{
-        var request = 'api/trabajadores/trabajadoresoficios/?oficio=' + this.props.id_hospital;
+        var mensaje = '';
+        this.props.id_hospitales.forEach(id_hospital => {
+            mensaje += "idhospital=" + id_hospital + "&";
+        });     
+        var request = 'api/trabajadores/trabajadoreshospitales?'+ mensaje;
         axios.get(Globals.urlAzureAPI + request).then(response=>{
             this.setState({
                 empleados : response.data
@@ -20,7 +24,7 @@ export default class EmpleadosDetalles extends Component{
     }
 
     Render_DetallesEmpleados=()=>{
-        if(this.state.empleados.length === 0)
+        if(this.state.empleados === null)
             return;
         return(
         <table className="table">
@@ -52,7 +56,7 @@ export default class EmpleadosDetalles extends Component{
     }
 
     componentDidUpdate = (before)=>{
-        if(before.id_hospital !== this.props.id_hospital){
+        if(before.id_hospitales !== this.props.id_hospitales){
             this.GET_TrabajadoresHospital();
         }
     }

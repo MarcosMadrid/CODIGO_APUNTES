@@ -1,8 +1,7 @@
 import {Component} from 'react';
 import Globals from '../Globals';
 import axios from 'axios';
-import HospitalesOficios from './HospitalesOficios';
-import HospitalesDetalles from './HospitalesDetalles';
+import EmpleadosDetalles from './EmpleadosDetalles';
 
 export default class Hospitales extends Component{
     urlAzureAPI = Globals.urlAzureAPI;
@@ -10,8 +9,7 @@ export default class Hospitales extends Component{
     state={
         hospitales : [],
         oficios_select : null,
-        hospitales_oficios : null,
-        hospitales_detalles : null,
+        hospitales_empleados : null,
     }
 
     GET_Hospitales=()=>{
@@ -41,28 +39,18 @@ export default class Hospitales extends Component{
         var select = event.currentTarget;
         var options = [...select.selectedOptions];
 
-        this.Render_HospitalesDetallles(options);
         this.Render_HospitalesOficios(options)
     }
 
     Render_HospitalesOficios =(options)=>{  
-        var hospitales_oficios = []
-        options.map((option, index)=>{
-            hospitales_oficios.push(<HospitalesOficios key={index} id_hospital={option.value}/>)
+        var id_hospitales = [] 
+        options.map((option, index_option)=>{
+            id_hospitales.push(option.value);
         });
-        this.setState({
-            hospitales_oficios : hospitales_oficios
-        });        
-    }
 
-    Render_HospitalesDetallles = (options)=>{
-        var idHospitales = [];
-        options.map((option, index)=>{
-            idHospitales.push(option.value);
-        });
         this.setState({
-            hospitales_detalles : <HospitalesDetalles id_hospitales={idHospitales}/>
-        });    
+            hospitales_empleados : <EmpleadosDetalles id_hospitales={id_hospitales}/>
+        });        
     }
 
     componentDidMount = ()=>{
@@ -74,9 +62,8 @@ export default class Hospitales extends Component{
             <select className="form-select"  onChange={(event)=>this.EventSelectHospital(event)} multiple>               
                 {this.Render_OptionsHospitales()}
             </select>
-            {this.state.hospitales_oficios}
             <hr></hr>
-            {this.state.hospitales_detalles}
+            {this.state.hospitales_empleados}
         </div>);
     }
 }
