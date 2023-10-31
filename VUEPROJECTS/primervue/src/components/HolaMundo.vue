@@ -1,8 +1,6 @@
 <template>
     <div>
-        <h1>PRIMERA APP Vue</h1>
-        <h2>{{nombre}}</h2>
-        <h3>{{ numero }}</h3>
+        HOLA MUNDO
     </div>
 </template>
 
