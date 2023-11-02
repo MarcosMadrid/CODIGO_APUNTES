@@ -1,0 +1,10 @@
+.rojo{
+    background-color: red;
+}
+.verde{
+    background-color: green;
+}
+
+ul li {
+    display: inline-flex;
+}

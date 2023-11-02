@@ -2,7 +2,24 @@
     <div>
        <h1> Collatz </h1>
        <input placeholder="inserte numero" type="number" v-model="numero">
-       <ul  v-html="ComputedCollatz"></ul>
+
+       <h3>Con v-html Filter</h3>
+       <ul>    
+            <li v-for="li in ComputedCollatz" :key="li" v-html="$filters.IsParHTML(li)">
+            </li>               
+        </ul>
+        
+        <h3>Con Boolean Filter</h3>
+        <ul>
+            <li v-for="numero in ComputedCollatz" :key="numero">
+                <span v-if="$filters.IsPar(numero)" style="color: green;">
+                    {{ numero }}
+                </span>
+                <span v-else style="color: red">
+                    {{ numero }}
+                </span>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -24,9 +41,9 @@ export default {
                 }else{
                     resultado = resultado*3 + 1;
                 }        
-                list.push("<li>"+resultado+"</li>");               
+                list.push(resultado);               
             }
-            return ("<li>"+resultado+"</li>"); 
+            return (list); 
         }
     }
 }
