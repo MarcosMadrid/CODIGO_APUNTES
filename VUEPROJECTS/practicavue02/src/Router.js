@@ -4,7 +4,8 @@ import CollatzComponent from "./components/Collatz.vue";
 import TablaMultiplicar from "./components/TablaMultiplicar.vue";
 import PadreComponent from './components/PadreDeporte.vue';
 import AcumularComponent from './components/AcumuladorComponent.vue';
-import ComicsComponent from './components/ComicsComponent.vue'
+import ComicsComponent from './components/ComicsComponent.vue';
+import ComicDetalles from './components/ComicDetalles.vue';
 
 const Routes =[
     {path:'/',component:HomeComponent}
@@ -18,6 +19,8 @@ const Routes =[
     {path:'/AcumularComponent',component:AcumularComponent}
     ,
     {path:'/ComicsComponent',component:ComicsComponent}
+    ,
+    {path:'/ComicDetalles/:titulo',component:ComicDetalles}
 ]
 
 var rutas = createRouter({
