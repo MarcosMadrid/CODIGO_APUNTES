@@ -10,10 +10,10 @@
             </tr>
         </thead>
         <tbody> 
-            <tr v-for="(coche , index) in coches" :key="coche">
+            <tr v-for="coche in coches" :key="coche">
             
-            <td v-for="value in Object.values(coche)" :key="value">             
-                <img v-if="Object.keys(coche)[index] == 'imagen'" :src=coche.imagen style="{width: 70px; height: 70px;}">
+            <td v-for="(value, index_value) in Object.values(coche)" :key="value">             
+                <img v-if="Object.keys(coche)[index_value] == 'imagen'" :src=coche.imagen style="{width: 70px; height: 70px;}">
                 <span v-else>                    
                     {{ value }}                            
                 </span>
@@ -43,7 +43,7 @@ export default {
         }).catch(error=>{
             console.log(error.menssage);
         });
-    }    
+    }
 }
 </script>
 

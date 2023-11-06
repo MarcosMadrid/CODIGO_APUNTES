@@ -14,6 +14,15 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/coches_servicios/">Vue Servicios</router-link>
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/EmpleadosDetalle/">Vue Servicios EmpleadosDetalle</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/OficiosHome/">Vue Servicios Oficios</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/Departamentos/">Vue Departamentos</router-link>
+            </li>
           </ul>
         </div>
       </div>
