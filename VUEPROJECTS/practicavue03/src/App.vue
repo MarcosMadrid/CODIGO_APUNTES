@@ -12,7 +12,7 @@
               <router-link class="nav-link" to="/tabla_multiplicar/">Tabla Multiplicar</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/coches_servicios/">Vue Servicios</router-link>
+              <router-link class="nav-link" to="/coches_servicios/">Vue Servicios Coches</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/EmpleadosDetalle/">Vue Servicios EmpleadosDetalle</router-link>
@@ -22,6 +22,9 @@
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/Departamentos/">Vue Departamentos</router-link>
+            </li>
+            <li>
+              <router-link class="nav-link" to="/HomeSeries/">Vue Series</router-link>
             </li>
           </ul>
         </div>

@@ -19,8 +19,9 @@
                     {{ value }}                                            
                 </td>
                 <td> 
-                    <router-link :to="'/FormDepartamento/put/' + departamento.idDepartamento" class="btn btn-success">Modificar</router-link>
-                    <button @click="DELETE_Departamento(departamento.idDepartamento)" class="btn btn-danger">Eliminar</button>
+                    <router-link :to="'/FormDepartamento/detalles/' + departamento.idDepartamento" class="btn btn-outline-secondary">Detalles</router-link>
+                    <router-link :to="'/FormDepartamento/put/' + departamento.idDepartamento" class="btn btn-outline-success">Modificar</router-link>
+                    <button @click="DELETE_Departamento(departamento.idDepartamento)" class="btn btn-outline-danger">Eliminar</button>
                 </td>
             </tr>
         </tbody>

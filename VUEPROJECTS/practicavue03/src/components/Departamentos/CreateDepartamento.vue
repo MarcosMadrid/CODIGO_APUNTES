@@ -34,6 +34,22 @@
             <button type="submit" class="btn btn-success">Modificar</button>
         </form>
 
+        <form v-if="type == 'detalles'">
+              <div class="mb-3">
+                <label for="Input_IdDepartamento" class="form-label disabled" >ID Departamento</label>
+                <input type="text" v-model="departamento.idDepartamento" class="form-control disabled" id="Input_IdDepartamento" aria-describedby="Departamento" disabled>    
+            </div>
+            <div class="mb-3">
+                <label for="Input_Nombre" class="form-label">Nombre</label>
+                <input type="text"  v-model="departamento.nombre"  class="form-control" id="Input_Nombre" aria-describedby="Nombre" disabled>    
+            </div>
+            <div class="mb-3">
+                <label for="Input_Localidad" class="form-label">Localidad</label>
+                <input type="text"  v-model="departamento.localidad" class="form-control" id="Input_Localidad" aria-describedby="Localidad" disabled>    
+            </div>
+            <router-link type="submit" to="/Departamentos/" class="btn btn-secondary">Volver</router-link>
+        </form>
+
     </div>    
   </div>
 </template>
@@ -72,13 +88,14 @@ export default {
             if(this.type == 'put'){               
                 service.UPDATE_Departamento(this.departamento);
             }
+            
 
-            this.$route.push("/Departamentos/")
+            this.$route.push("/Departamentos/");
         }
     },
     mounted(){    
         this.type = this.$route.params.type;
-        if(this.type == 'put'){               
+        if(this.type != 'post'){
             service.GET_Departamento(this.$route.params.id_departamento).then(response=>{
                 this.departamento = response;
             });
