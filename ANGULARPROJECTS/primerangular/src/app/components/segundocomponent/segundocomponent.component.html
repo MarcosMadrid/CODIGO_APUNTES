@@ -1,0 +1,27 @@
+<p>segundocomponent works!</p>
+<button (click)="CambiarMensaje()">Cambiar mensaje</button>
+    {{ mensaje }}
+    <p></p>
+    <div *ngIf="condicion; then mostrar else Nomostrar">
+        Here is never showing
+    </div>
+    <ng-template #mostrar>
+        Los muestro:
+        <ul>
+            <li *ngFor="let dept of deportes; let i = index">
+                {{ i }} - {{ dept }}
+            </li>
+        </ul>
+    </ng-template>
+    
+    <ng-template #Nomostrar>
+        No los muestro
+    </ng-template>
+    
+    <p></p>
+    <ul>
+        <li *ngFor="let numero of numeros"
+        [ngClass]="{par: numero%2 == 0, impar: numero%2 == 1}">            
+            {{ numero }}
+        </li>      
+    </ul>

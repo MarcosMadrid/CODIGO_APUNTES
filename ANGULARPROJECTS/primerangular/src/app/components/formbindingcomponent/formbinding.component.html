@@ -1,0 +1,30 @@
+<h1>Binding Model</h1>
+<form #userForm="ngForm"(submit)="Submit_Datos($event)" class="form">
+    <label>Nombre</label>
+    <input type="text" name="cajanombre" #cajanombre="ngModel" [(ngModel)]="user.nombre" required>    
+    <br>
+    <label>Apellido</label>
+    <input type="text"  name="cajaapellidos" 
+    #cajaapellidos="ngModel" [(ngModel)]="user.apellido"  pattern="^[A-Z]{1}[a-z]{2,}" required>
+    <span style="color: red;"
+    *ngIf="cajaapellidos.valid == false && cajaapellidos.touched">
+        El apellido debe comenzar con mayúscula y tener mínimo  3 carácteres
+    </span>
+    <br>
+    <label>Edad</label>
+    <input type="number"  name="cajaedad" #cajaedad="ngModel" [(ngModel)]="user.edad" required>
+    <br>
+    <button type="submit" [disabled]="!userForm.valid">Enviar</button>
+</form>
+
+<ul>
+    <li>
+        {{user.nombre}}
+    </li>
+    <li *ngIf="cajaapellidos.valid == true && cajaapellidos.touched">
+        {{user.apellido}}
+    </li>
+    <li *ngIf="cajaedad.valid == true && cajanombre.touched">
+        {{user.edad}}
+    </li>
+</ul>

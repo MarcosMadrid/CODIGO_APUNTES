@@ -7,7 +7,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">           
+          <ul class="navbar-nav" id="menu_app">           
             <li class="nav-item">
               <router-link class="nav-link" to="/tabla_multiplicar/">Tabla Multiplicar</router-link>
             </li>
@@ -30,12 +30,14 @@
         </div>
       </div>
     </nav>
-
-    <router-view></router-view>
+    <div id="router-view-container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 
@@ -43,7 +45,32 @@ export default {
   name: 'App',
   components: {
      
-  }
+  },
+  mounted(){
+    this.Animation_Nav();
+  }, 
+  watch:{
+    $route(){
+      this.Animation_RouterView();
+    }
+  },
+  methods:{
+        Animation_Nav(){
+            gsap.from("#menu_app",
+                {
+                    x:-200,
+                    duration: 1.5,
+                    ease: 'ease.out'
+                });
+        },
+        Animation_RouterView(){          
+          gsap.from("#router-view-container",
+                {
+                    x:-200,
+                    duration: 1                 
+                });
+        }
+    }
 }
 </script>
 

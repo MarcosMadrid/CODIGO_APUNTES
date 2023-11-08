@@ -21,7 +21,6 @@
   </div>
 </template>
 <script>
-
 import ServicesSeries from '../../services/ServicesSeries'
 const service = new ServicesSeries();
 
@@ -33,14 +32,13 @@ export default {
         }
     },
     mounted(){
-
             service.GET_Series()
             .then(response=>{
                 this.series = response.data;
             })
             .catch(error=>{
                 console.log(error.message); 
-            })
+            });        
     }
 }
 </script>

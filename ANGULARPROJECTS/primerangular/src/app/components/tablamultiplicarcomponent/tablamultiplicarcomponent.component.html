@@ -1,0 +1,11 @@
+
+<form>
+    <input #cajaNumero type="number" >
+</form>
+<table>
+    <tr *ngFor="let numero of multiplicaciones, let i = index">
+        <td>{{ numero }} * {{ i }}</td> 
+       <td>{{ numero }}</td> 
+    </tr>
+</table>
+
