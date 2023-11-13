@@ -8,6 +8,7 @@ export class Producto{
         this.imagen = imagen;
         this.precio = precio;
     }
+    
 
     Set_Nombre(nombre : string){
         this.nombre = nombre

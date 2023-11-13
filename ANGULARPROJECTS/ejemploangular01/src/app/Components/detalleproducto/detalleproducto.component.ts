@@ -8,20 +8,21 @@ import { Producto } from 'src/app/Models/Producto';
 })
 export class DetalleproductoComponent implements OnInit{
   producto !: Producto;
-  constructor(private activeRoute:ActivatedRoute){
-    
+  constructor(private activeRoute:ActivatedRoute){    
   }
 
   ngOnInit(): void {
     const isValidParam = (param: any) => param !== null;
 
-    var nombre= this.activeRoute.snapshot.paramMap.get('nombre') ?? '';
-    var imagen= this.activeRoute.snapshot.paramMap.get('imagen') ?? '';
+    var nombre= String(this.activeRoute.snapshot.paramMap.get('nombre'));
+    var imagen= String(this.activeRoute.snapshot.paramMap.get('imagen'));
     var precio= parseInt(this.activeRoute.snapshot.paramMap.get('precio') ?? '');    
     
-    this.producto.Set_Nombre(nombre);
-    this.producto.Set_Precio(precio);
-    this.producto.Set_Imagen(imagen)
+    this.producto = new Producto(
+      nombre,
+      imagen,
+      precio
+    );    
   }
 
 }
