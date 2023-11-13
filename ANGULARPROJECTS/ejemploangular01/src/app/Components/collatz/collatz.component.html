@@ -1,0 +1,10 @@
+
+<button (click)="Reirect_Collatz()" class="btn btn-primary float-end">Generar Numero</button>
+<h3>{{numero}}</h3>
+<div class="container d-flex justify-content-center">
+    <ul class="list-group col-1 mb-4">
+        <li *ngFor="let numero of numeros" class="list-group-item text-center">
+            {{ numero }}
+        </li>
+    </ul>
+</div>

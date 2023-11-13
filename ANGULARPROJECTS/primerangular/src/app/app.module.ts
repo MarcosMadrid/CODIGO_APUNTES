@@ -7,6 +7,7 @@ import { PrimercomponentComponent } from './components/primercomponent/primercom
 import { SegundocomponentComponent } from './components/segundocomponent/segundocomponent.component';
 import { FormsBindingComponent } from './components/formbindingcomponent/formbinding.component';
 import { TablamultiplicarcomponentComponent } from './components/tablamultiplicarcomponent/tablamultiplicarcomponent.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { TablamultiplicarcomponentComponent } from './components/tablamultiplica
     TablamultiplicarcomponentComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

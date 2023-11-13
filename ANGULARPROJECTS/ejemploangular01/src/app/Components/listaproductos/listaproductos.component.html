@@ -1,0 +1,21 @@
+<div>
+    <table class="table">
+        <thead>          
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos">
+                <td>
+                    {{ producto.Get_Nombre() }} 
+                </td>
+                <td>
+                    {{ producto.Get_Precio() }} 
+                </td>
+                <td>
+                    <img [src]="producto.Get_Imagen()" class="col-1">
+                </td>
+                <button class="btn btn-bd-accent" (click)="Redirect_DetallesProducto(producto)"> Detalles </button>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>

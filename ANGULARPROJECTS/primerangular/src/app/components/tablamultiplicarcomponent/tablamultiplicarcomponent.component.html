@@ -1,10 +1,10 @@
 
 <form>
-    <input #cajaNumero type="number" >
+    <input #cajaNumero type="number" (input)="TablaMultiplicar()">
 </form>
-<table>
+<table *ngIf="!isNaN(multiplicaciones[1])">
     <tr *ngFor="let numero of multiplicaciones, let i = index">
-        <td>{{ numero }} * {{ i }}</td> 
+        <td>{{ multiplicaciones[1] }} * {{ i }}</td> 
        <td>{{ numero }}</td> 
     </tr>
 </table>

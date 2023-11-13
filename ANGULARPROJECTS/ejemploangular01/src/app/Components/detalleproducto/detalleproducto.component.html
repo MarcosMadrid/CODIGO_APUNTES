@@ -1,0 +1,8 @@
+<div class="card" style="width: 18rem;">
+    <img [src]="producto.Get_Imagen()" class="card-img-top" >
+    <div class="card-body">
+      <h5 class="card-title">{{ producto.Get_Nombre() }}</h5>
+      <p class="card-text">{{ producto.Get_Precio() }}</p>
+      <a routerLink="productos" class="btn btn-danger">Volver</a>
+    </div>
+  </div>
