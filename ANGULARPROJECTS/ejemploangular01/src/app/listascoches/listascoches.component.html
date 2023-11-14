@@ -1,0 +1,26 @@
+<form (submit)="CrearCoche($event)">
+    <div class="mb-3">
+      <label for="Input_Marca" class="form-label">Marca</label>
+      <input type="text" class="form-control" id="Input_Marca" [defaultValue]="">
+    </div>
+    <div class="mb-3">
+      <label for="Input_Modelo" class="form-label">Modelo</label>
+      <input type="text" class="form-control" id="Input_Modelo" [defaultValue]="">
+    </div>
+    <div class="mb-3">
+        <label for="Input_Velocidad" class="form-label">Velocidad</label>
+        <input type="number" class="form-control" id="Input_Velocidad" [defaultValue]="0" min="0">
+    </div>
+    <div class="mb-3">
+        <label for="Input_Aceleracion" class="form-label">Aceleracion</label>
+        <input type="number" class="form-control" id="Input_Aceleracion" [defaultValue]="0" min="0">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="Check_Estado" >
+        <label class="form-check-label" for="Check_Estado">Estado</label>
+      </div>
+    <button type="submit" class="btn btn-primary">Crear Coche</button>    
+</form>
+<div *ngFor="let coche of coches; index as i" class="list-group-item float-lg-start">
+    <app-detallescoches [coche]="coche" (eliminar)="Eliminar($event)" [id]="i"></app-detallescoches>
+</div>

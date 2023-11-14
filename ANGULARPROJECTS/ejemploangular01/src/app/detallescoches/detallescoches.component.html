@@ -1,0 +1,8 @@
+
+<div class="card" style="width: 18rem;">    
+    <div class="card-body">
+        <h5 class="card-title" [ngStyle]="{'color' : coche.Get_Estado() ? 'green' : 'red' }">{{ coche.Get_Marca() }} | {{ coche.Get_Modelo() }}</h5>
+        <p class="card-text">{{ coche.Get_Estado() }}</p>
+        <button class="btn btn-danger" (click)="onDeleteClick()">Eliminar</button>
+    </div>
+    </div>

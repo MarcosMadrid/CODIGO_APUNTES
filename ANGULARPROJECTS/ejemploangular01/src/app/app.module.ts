@@ -11,6 +11,13 @@ import { NumerodobleComponent } from './Components/numerodoble/numerodoble.compo
 import { CollatzComponent } from './Components/collatz/collatz.component';
 import { ListaproductosComponent } from './Components/listaproductos/listaproductos.component';
 import { DetalleproductoComponent } from './Components/detalleproducto/detalleproducto.component';
+import { MenuComponent } from './Components/menu/menu.component';
+import { ListascochesComponent } from './listascoches/listascoches.component';
+import { DetallescochesComponent } from './detallescoches/detallescoches.component';
+import { ListacomicsComponent } from './Components/Comic/listacomics/listacomics.component';
+import { ComicComponent } from './Components/Comic/comic/comic.component';
+import { FormComicComponent } from './Components/Comic/form-comic/form-comic.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,10 +29,17 @@ import { DetalleproductoComponent } from './Components/detalleproducto/detallepr
     NumerodobleComponent,
     CollatzComponent,
     ListaproductosComponent,
-    DetalleproductoComponent
+    DetalleproductoComponent,
+    MenuComponent,
+    ListascochesComponent,
+    DetallescochesComponent,
+    ListacomicsComponent,
+    ComicComponent,
+    FormComicComponent
+
   ],
   imports: [
-    BrowserModule, routing
+    BrowserModule, FormsModule ,routing
   ],
   providers: [appRoutingProvider],
   bootstrap: [AppComponent]

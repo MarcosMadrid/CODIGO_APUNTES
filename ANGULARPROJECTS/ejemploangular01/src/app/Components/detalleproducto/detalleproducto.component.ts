@@ -14,15 +14,15 @@ export class DetalleproductoComponent implements OnInit{
   ngOnInit(): void {
     const isValidParam = (param: any) => param !== null;
 
-    var nombre= String(this.activeRoute.snapshot.paramMap.get('nombre'));
-    var imagen= String(this.activeRoute.snapshot.paramMap.get('imagen'));
-    var precio= parseInt(this.activeRoute.snapshot.paramMap.get('precio') ?? '');    
-    
-    this.producto = new Producto(
-      nombre,
-      imagen,
-      precio
-    );    
+    var nombre = this.activeRoute.snapshot.paramMap.get('nombre') ?? '';
+    var imagen = this.activeRoute.snapshot.paramMap.get('imagen') ?? '';
+    var precio = parseInt(this.activeRoute.snapshot.paramMap.get('precio') ?? '');
+
+    this.producto = new Producto();
+
+    this.producto.Set_Nombre(nombre);
+    this.producto.Set_Imagen(imagen);
+    this.producto.Set_Precio(precio);    
   }
 
 }

@@ -3,10 +3,10 @@ export class Producto{
     private imagen:string;
     private precio:number;
 
-    constructor(nombre : string , imagen: string , precio : number){
-        this.nombre = nombre;
-        this.imagen = imagen;
-        this.precio = precio;
+    constructor(nombre ?: string , imagen ?: string , precio ?: number){
+        this.nombre = nombre ?? '';
+        this.imagen = imagen ?? '';
+        this.precio = precio ?? Number.NaN;
     }
     
 

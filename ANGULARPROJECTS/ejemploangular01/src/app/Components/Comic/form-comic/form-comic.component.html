@@ -1,0 +1,74 @@
+<form #FormComic="ngForm" name="FormComic" (submit)="SubmitComic(FormComic)" *ngIf="method == 'post'">
+  <div ngModelGroup="comic" >
+    <div class="mb-3">
+      <label for="Input_Titulo" class="form-label">Titulo</label>
+      <input type="text" ngModel name="titulo" #Input_Titulo="ngModel" [ngModel]="comic.Set_Titulo(Input_Titulo.value)" class="form-control" id="Input_Marca" required>
+    </div>
+    <div class="mb-3">
+      <label for="Input_Descripcion" class="form-label">Descripcion</label>
+      <input type="text" ngModel name="descripcion" #Input_Descripcion="ngModel" [ngModel]="comic.Set_Descripcion(Input_Descripcion.value)" class="form-control" id="Input_Descripcion" required>
+    </div>
+    <div class="mb-3">
+        <label for="Input_Imagen" class="form-label">Imagen</label>
+        <input type="text" ngModel name="imagen" #Input_Imagen="ngModel" [ngModel]="comic.Set_Imagen(Input_Imagen.value)" class="form-control" id="Input_Imagen" required>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Crear Comic</button>      
+</form>
+
+<form #FormComic="ngForm" name="FormComic" (ngSubmit)="SubmitComic(FormComic)" *ngIf="method == 'put'">
+  <div ngModelGroup="comic" >
+    <div class="mb-3">
+      <label for="Input_Titulo" class="form-label">Titulo</label>
+      <input type="text" ngModel name="titulo" #Input_Titulo="ngModel" [ngModel]="comic.Set_Titulo(Input_Titulo.value)" class="form-control" id="Input_Marca" required>
+    </div>
+    <div class="mb-3">
+      <label for="Input_Descripcion" class="form-label">Descripcion</label>
+      <input type="text" ngModel name="descripcion" #Input_Descripcion="ngModel" [ngModel]="comic.Set_Descripcion(Input_Descripcion.value)" class="form-control" id="Input_Descripcion" required>
+    </div>
+    <div class="mb-3">
+        <label for="Input_Imagen" class="form-label">Imagen</label>
+        <input type="text" ngModel name="imagen" #Input_Imagen="ngModel" [ngModel]="comic.Set_Imagen(Input_Imagen.value)" class="form-control" id="Input_Imagen" required>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Crear Comic</button>      
+</form>
+
+<form #FormComic="ngForm" name="FormComic" *ngIf="method == 'detalles'">
+  <div ngModelGroup="comic" >
+    <div class="mb-3">
+      <label for="Input_Marca" class="form-label">Titulo</label>
+      <input type="text" ngModel name="titulo" #Input_Marca="ngModel" [ngModel]="comic.Get_Titulo()" class="form-control" id="Input_Marca" disabled="">
+    </div>
+    <div class="mb-3">
+      <label for="Input_Descripcion" class="form-label">Descripcion</label>
+      <input type="text" ngModel name="descripcion" #Input_Descripcion="ngModel" [ngModel]="comic.Get_Descripcion()" class="form-control" id="Input_Descripcion" disabled="">
+    </div>
+    <div class="mb-3">
+        <label for="Input_Imagen" class="form-label">Imagen</label>
+        <input type="text" ngModel name="imagen" #Input_Imagen="ngModel" [ngModel]="comic.Get_Imagen()" class="form-control" id="Input_Imagen" disabled="">
+    </div>
+  </div>
+  <a routerLink="/comics" class="btn btn-primary">Volver</a>      
+</form>
+
+
+<hr>
+<h1>Preview</h1>
+<div class="card " style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="comic.Get_Imagen()" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ comic.Get_Titulo() }}</h5>
+        <p class="card-text">{{ comic.Get_Descripcion() }}</p>
+        <button class="btn btn-outline-primary" disabled>Modificar</button>
+        <button class="btn btn-outline-success" disabled>Detalles</button>
+        <button class="btn btn-outline-info" disabled>Favorito</button>
+        <button class="btn btn-outline-danger" disabled>Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>    
