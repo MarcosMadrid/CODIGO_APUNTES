@@ -58,6 +58,5 @@ export class ListacomicsComponent {
   Update_Comic(comic : Comic , id : number){
     this.comics[id] = comic;
   }
-
-
+  
 }

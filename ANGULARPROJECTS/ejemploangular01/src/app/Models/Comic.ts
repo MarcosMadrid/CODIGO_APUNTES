@@ -11,15 +11,12 @@ export class Comic{
 
     Set_Titulo( titulo : string){
         this.titulo = titulo;
-        return this.descripcion;
     }
     Set_Imagen(imagen : string){
         this.imagen = imagen;
-        return this.descripcion;
     }
     Set_Descripcion(descripcion : string){
         this.descripcion = descripcion;
-        return this.descripcion;
     }
     
     Get_Titulo(){
