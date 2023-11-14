@@ -3,7 +3,7 @@ import { NumerodobleComponent } from './app/Components/numerodoble/numerodoble.c
 import { CollatzComponent } from './app/Components/collatz/collatz.component';
 import { ListaproductosComponent } from './app/Components/listaproductos/listaproductos.component';
 import { DetalleproductoComponent } from './app/Components/detalleproducto/detalleproducto.component';
-import { ListascochesComponent } from './app/listascoches/listascoches.component';
+import { ListascochesComponent } from './app/Components/listascoches/listascoches.component';
 import { FormComicComponent } from './app/Components/Comic/form-comic/form-comic.component';
 import { ListacomicsComponent } from './app/Components/Comic/listacomics/listacomics.component';
 

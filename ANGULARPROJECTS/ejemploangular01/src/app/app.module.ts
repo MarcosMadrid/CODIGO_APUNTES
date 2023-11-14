@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { routing, appRoutingProvider } from 'src/app.routing';
 
@@ -10,12 +11,11 @@ import { CollatzComponent } from './Components/collatz/collatz.component';
 import { ListaproductosComponent } from './Components/listaproductos/listaproductos.component';
 import { DetalleproductoComponent } from './Components/detalleproducto/detalleproducto.component';
 import { MenuComponent } from './Components/menu/menu.component';
-import { ListascochesComponent } from './listascoches/listascoches.component';
-import { DetallescochesComponent } from './detallescoches/detallescoches.component';
+import { ListascochesComponent } from './Components/listascoches/listascoches.component';
+import { DetallescochesComponent } from './Components/detallescoches/detallescoches.component';
 import { ListacomicsComponent } from './Components/Comic/listacomics/listacomics.component';
 import { ComicComponent } from './Components/Comic/comic/comic.component';
 import { FormComicComponent } from './Components/Comic/form-comic/form-comic.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

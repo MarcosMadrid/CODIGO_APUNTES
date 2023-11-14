@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Coche } from '../Models/Coche';
+import { Coche } from '../../Models/Coche';
 
 @Component({
   selector: 'app-detallescoches',
