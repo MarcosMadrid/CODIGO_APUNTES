@@ -4,8 +4,6 @@ import { routing, appRoutingProvider } from 'src/app.routing';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
-import { CineComponent } from './Components/cine/cine.component';
-import { MusicaComponent } from './Components/musica/musica.component';
 import { Error404Component } from './Components/error404/error404.component';
 import { NumerodobleComponent } from './Components/numerodoble/numerodoble.component';
 import { CollatzComponent } from './Components/collatz/collatz.component';
@@ -23,8 +21,6 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     HomeComponent,
-    CineComponent,
-    MusicaComponent,
     Error404Component,
     NumerodobleComponent,
     CollatzComponent,

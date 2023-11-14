@@ -1,6 +1,4 @@
 import {HomeComponent} from './app/Components/home/home.component';
-import {CineComponent} from './app/Components/cine/cine.component';
-import {MusicaComponent} from './app/Components/musica/musica.component';
 import { NumerodobleComponent } from './app/Components/numerodoble/numerodoble.component';
 import { CollatzComponent } from './app/Components/collatz/collatz.component';
 import { ListaproductosComponent } from './app/Components/listaproductos/listaproductos.component';
@@ -16,8 +14,6 @@ import { Error404Component } from './app/Components/error404/error404.component'
 
 const appRoutes : Routes =[
     {path: '', component:HomeComponent},
-    {path: 'cine', component:CineComponent},
-    {path: 'musica', component:MusicaComponent},
     {path: 'doble', component:NumerodobleComponent},
     {path: 'doble/:numero', component:NumerodobleComponent},
     {path: 'collatz/:numero', component:CollatzComponent},
