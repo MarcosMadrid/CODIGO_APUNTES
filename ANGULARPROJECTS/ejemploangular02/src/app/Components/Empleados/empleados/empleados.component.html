@@ -1,0 +1,27 @@
+<select  
+    class="form-select"      
+    #InputSelectFuncion="ngModel" 
+    name="InputSelectFuncion" 
+    (change)="Submit_Funcion(InputSelectFuncion)" 
+    ngModel 
+    multiple
+    [length]="funciones.length"
+    *ngIf="funciones.length != 0">
+    <option *ngFor="let funcion of funciones" [value]="funcion">
+        {{funcion.toUpperCase()}}
+    </option>
+</select>
+
+<table *ngIf="empleados.length != 0" class="table">
+    <tbody>
+        <tr *ngFor="let empleado of empleados">
+            <td>{{ empleado.Get_IdEmpleado() }}</td>
+            <td>{{ empleado.Get_IdHospital() }}</td>
+            <td>{{ empleado.Get_IdSala() }}</td>
+            <td>{{ empleado.Get_Apellido() }}</td>
+            <td>{{ empleado.Get_Turno() }}</td>
+            <td>{{ empleado.Get_Salario() }}</td>
+            <td>{{ empleado.Get_Funcion() }}</td>
+        </tr>
+    </tbody>
+</table>

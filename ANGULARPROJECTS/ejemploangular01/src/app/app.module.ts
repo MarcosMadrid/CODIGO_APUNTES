@@ -16,6 +16,7 @@ import { DetallescochesComponent } from './Components/detallescoches/detallescoc
 import { ListacomicsComponent } from './Components/Comic/listacomics/listacomics.component';
 import { ComicComponent } from './Components/Comic/comic/comic.component';
 import { FormComicComponent } from './Components/Comic/form-comic/form-comic.component';
+import { ComicsService } from './services/comics.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { FormComicComponent } from './Components/Comic/form-comic/form-comic.com
   imports: [
     BrowserModule, FormsModule ,routing
   ],
-  providers: [appRoutingProvider],
+  providers: [appRoutingProvider, ComicsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
