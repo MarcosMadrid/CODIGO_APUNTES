@@ -1,0 +1,9 @@
+
+<div class="card" style="width: 18rem;" *ngIf="serie != null">
+    <img [src]="serie.imagen" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{serie.nombre}}</h5>
+        <p class="card-text">{{serie.puntuacion}} | {{serie.anyo}}</p>
+        <a [routerLink]="['/personajes/' + serie.idSerie]" class="btn btn-primary">Personajes</a>
+    </div>
+    </div>

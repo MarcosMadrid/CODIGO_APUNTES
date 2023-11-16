@@ -1,12 +1,10 @@
 <select  
     class="form-select"      
     #InputSelectFuncion="ngModel" 
-    name="InputSelectFuncion" 
-    (change)="Submit_Funcion(InputSelectFuncion)" 
+    (change)="Submit_Funcion(InputSelectFuncion)"         
+    *ngIf="funciones.length != 0"
     ngModel 
-    multiple
-    [length]="funciones.length"
-    *ngIf="funciones.length != 0">
+    multiple>
     <option *ngFor="let funcion of funciones" [value]="funcion">
         {{funcion.toUpperCase()}}
     </option>

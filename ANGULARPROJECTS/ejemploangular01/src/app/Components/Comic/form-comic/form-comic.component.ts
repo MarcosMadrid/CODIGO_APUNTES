@@ -19,7 +19,6 @@ export class FormComicComponent{
     }
   }
   
-
   SubmitComic(form: NgForm) {   
     if(form.status != 'VALID'){
       return;

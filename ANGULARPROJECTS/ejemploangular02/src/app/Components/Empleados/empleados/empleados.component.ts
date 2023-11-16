@@ -25,16 +25,14 @@ export class EmpleadosComponent implements OnInit{
   Submit_Funcion(selector : any){
     this.empleados = [];
     var funciones : Array<string> = selector.viewModel
+
     funciones.forEach(funcion => {
       this._serviceEmpleados.GET_EmpleadosFunciones(funcion)
-      .then(response=>{
-        response.forEach((empleado: any) => {          
+      .then((response : Array<Empleado>) =>{
+        response.forEach((empleado: Empleado) => {          
           this.empleados.push(Object.assign(new Empleado() , empleado));
-        });
-      })
-      .catch(error=>{
-        console.log(error);
-      })
+        });       
+      });
     });    
   }
 }

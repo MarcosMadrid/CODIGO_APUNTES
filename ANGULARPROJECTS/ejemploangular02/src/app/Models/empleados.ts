@@ -1,4 +1,5 @@
 export default class Empleado{
+    
     private idEmpleado: number;
     private idHospital: number;
     private idSala: number;
@@ -6,6 +7,7 @@ export default class Empleado{
     private funcion: string;
     private turno: string;
     private salario: number;
+
     constructor(idEmpleado?: number,idHospital ?: number, idSala?: number, apellido?: string, funcion?: string, turno?: string, salario?: number,){
         this.idEmpleado = idEmpleado ?? NaN;
         this.idHospital = idHospital ?? NaN;

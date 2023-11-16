@@ -14,8 +14,8 @@ export class DetallescochesComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    this._serviceCoches.GET_Coches().then((response) =>{
-      response.forEach((coche: any) => {        
+    this._serviceCoches.GET_Coches().then((response : Array<Coche>) =>{
+      response.forEach((coche: Coche) => {        
         this.coches.push(Object.assign(new Coche() , coche));
       });
     }).catch(error=>{

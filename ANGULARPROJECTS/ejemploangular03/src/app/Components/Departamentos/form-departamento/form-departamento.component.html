@@ -1,0 +1,17 @@
+<form #FormDept="ngForm" name="FormDept" (submit)="Submit_Departamento(FormDept.form)">
+    <div formGroup="departamento">
+        <div class="mb-3">
+            <label for="Input_IdDepartamento" class="form-label" >ID Departamento</label>
+            <input type="text" class="form-control" id="Input_IdDepartamento" name="idDepartamento" ngModel [ngModel]="departamento.idDepartamento" required>
+        </div>
+        <div class="mb-3">
+          <label for="Input_Nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="Input_Nombre" name="nombre" ngModel [ngModel]="departamento.nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="Input_Localidad" class="form-label">Localidad</label>
+          <input type="text" class="form-control" id="Input_Localidad" name="localidad" ngModel [ngModel]="departamento.localidad" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
