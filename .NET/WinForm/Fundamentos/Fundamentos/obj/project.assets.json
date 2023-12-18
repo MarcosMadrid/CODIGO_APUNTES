@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\.NET\\WinForm\\Fundamentos\\Fundamentos\\Fundamentos.csproj",
+      "projectUniqueName": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\ALL_PROYECTS\\.NET\\WinForm\\Fundamentos\\Fundamentos\\Fundamentos.csproj",
       "projectName": "Fundamentos",
-      "projectPath": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\.NET\\WinForm\\Fundamentos\\Fundamentos\\Fundamentos.csproj",
+      "projectPath": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\ALL_PROYECTS\\.NET\\WinForm\\Fundamentos\\Fundamentos\\Fundamentos.csproj",
       "packagesPath": "C:\\Users\\Alumnos MCSD Mañana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\.NET\\WinForm\\Fundamentos\\Fundamentos\\obj\\",
+      "outputPath": "C:\\Users\\Alumnos MCSD Mañana\\Documents\\ALL_PROYECTS\\.NET\\WinForm\\Fundamentos\\Fundamentos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

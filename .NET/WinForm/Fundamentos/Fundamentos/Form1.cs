@@ -22,7 +22,7 @@ namespace Fundamentos
         private void BtnNombre_Click(object sender, EventArgs e)
         {
             this.LabelNombre.Location = new Point(60, 39);
-            this.LabelNombre.ForeColor =  Color.FromArgb(1, 100, 200, 233);
+            this.LabelNombre.ForeColor =  Color.FromArgb(1, 100, 200, 23);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
