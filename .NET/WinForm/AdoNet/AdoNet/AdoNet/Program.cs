@@ -16,7 +16,7 @@ namespace AdoNet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form01PrimerAdo());
+            Application.Run(new Form05());
         }
     }
 }

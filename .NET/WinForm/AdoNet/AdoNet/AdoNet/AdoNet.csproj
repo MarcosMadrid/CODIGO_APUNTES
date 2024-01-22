@@ -55,10 +55,28 @@
     <Compile Include="Form01PrimerAdo.Designer.cs">
       <DependentUpon>Form01PrimerAdo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form04.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form04.Designer.cs">
+      <DependentUpon>Form04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form05.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form05.Designer.cs">
+      <DependentUpon>Form05.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form01PrimerAdo.resx">
       <DependentUpon>Form01PrimerAdo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form04.resx">
+      <DependentUpon>Form04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form05.resx">
+      <DependentUpon>Form05.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
