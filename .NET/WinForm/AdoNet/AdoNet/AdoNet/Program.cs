@@ -16,7 +16,7 @@ namespace AdoNet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPractica2());
+            Application.Run(new Form10MensajeServer());
         }
     }
 }
