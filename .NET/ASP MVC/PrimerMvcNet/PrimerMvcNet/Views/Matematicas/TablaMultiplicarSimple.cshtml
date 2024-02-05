@@ -1,0 +1,20 @@
+﻿<form action="" method="post">
+    <input name="num"/>
+    <button type="submit">Multiplicar</button>
+</form>
+
+
+@if(@ViewData["Num"] != null){
+<table>
+    @for(int index = 0; index <= 10; index++) {
+        <tr>
+            <td>
+                @index x @ViewData["Num"]
+            </td>
+            <td>
+                @ViewData["Num"]*@index
+            </td>
+        </tr>
+    }
+</table>
+}

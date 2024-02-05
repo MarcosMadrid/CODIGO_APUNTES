@@ -17,5 +17,12 @@ namespace PrimerMvcNet.Controllers
         {
             return View();
         }
+
+        [HttpPost,HttpGet]
+        public IActionResult TablaMultiplicarSimple(int? num)
+        {
+            ViewBag.Num = num;
+            return View();
+        }
     }
 }
