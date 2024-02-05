@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdoNet.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace AdoNet
         public Form10MensajeServer()
         {
             InitializeComponent();
-            connection = new SqlConnection("Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=HOSPITALBBDD;Persist Security Info=True;User ID=SA;Password=MCSD2023;");
+            connection = new SqlConnection(HelpersConfiguration.GetConnectionString());
             LoadDepartamentos();
         }
 
