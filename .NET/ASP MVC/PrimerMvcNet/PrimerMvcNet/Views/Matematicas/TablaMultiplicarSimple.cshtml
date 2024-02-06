@@ -1,18 +1,20 @@
-﻿<form action="" method="post">
+﻿@model TablaMultiplicarModel
+
+<form action="" method="post">
     <input name="num"/>
     <button type="submit">Multiplicar</button>
 </form>
 
 
 @if(@ViewData["Num"] != null){
-<table>
+<table class="table">
     @for(int index = 0; index <= 10; index++) {
         <tr>
             <td>
-                @index x @ViewData["Num"]
+                @Model.TablaMultiplicarOperaciones[index]
             </td>
             <td>
-                @ViewData["Num"]*@index
+               @Model.TablaMultiplicarResultados[index]
             </td>
         </tr>
     }

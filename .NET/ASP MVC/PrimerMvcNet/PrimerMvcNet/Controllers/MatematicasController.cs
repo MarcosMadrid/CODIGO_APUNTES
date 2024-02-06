@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PrimerMvcNet.Models;
 
 namespace PrimerMvcNet.Controllers
 {
@@ -20,8 +21,18 @@ namespace PrimerMvcNet.Controllers
 
         [HttpPost,HttpGet]
         public IActionResult TablaMultiplicarSimple(int? num)
-        {
-            ViewBag.Num = num;
+        {   
+            if(num != null)
+            {
+                TablaMultiplicarModel tablaMultiplicarModel = new TablaMultiplicarModel();
+                var count = 0;
+                while(count != 11) {
+                    tablaMultiplicarModel.TablaMultiplicarOperaciones.Add(num + "*" + count);
+                    tablaMultiplicarModel.TablaMultiplicarResultados.Add((int)num * count);
+                    count++;
+                }
+                return View(tablaMultiplicarModel);
+            }
             return View();
         }
     }
