@@ -1,0 +1,54 @@
+﻿@model List<Mascota>
+<div class="container align-content-center p-2">
+    <form method="post" class="form-control" action="MascotasTableView">
+        <div class="col-6 form-group">
+            <label class="col-form-label" id="raza_input">Raza</label>
+            <input type="text" class="form-control-sm" id="raza_input" name="Raza" required />
+        </div>
+        <div class="col-6 form-group">
+            <label class="col-form-label" id="sexo_input">Sexo</label>
+            <input type="text" class="form-control-sm" id="sexo_input" name="Sexo" required />
+        </div>
+        <div class="col-6 form-group">
+            <label class="col-form-label" for="edad_input">Edad</label>
+            <input type="number" class="form-control-sm" id="edad_input" name="Edad" required />
+        </div>
+        <button class="btn btn-success form-text">Añadir Mascota</button>
+    </form>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Raza
+            </th>
+            <th>
+                Sexo
+            </th>
+            <th>
+                Edad
+            </th>
+        </tr>
+    </thead>
+    @if (Model.Count != 0)
+    {
+        <tbody>
+            @foreach (Mascota mascota in Model)
+            {
+                <tr>
+                    <td>
+                        @mascota.Raza
+                    </td>
+                    <td>
+                        @mascota.Sexo
+                    </td>
+                    <td>
+                        @mascota.Edad
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+</table>

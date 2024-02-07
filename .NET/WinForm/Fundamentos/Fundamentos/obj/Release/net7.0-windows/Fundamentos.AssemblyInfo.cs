@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fundamentos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7f092bca23527779f3bc3e122329a9137ef9e46")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fundamentos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fundamentos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
