@@ -1,49 +1,68 @@
-﻿@model List<Hospital>
+﻿@model IEnumerable<MvcCoreAdoNet.Models.Hospital>
 
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+<h1>View</h1>
+
+<p>
+    <a asp-action="CrearHospital" class="btn btn-outline-success">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
-            <td>
-                IdHospital
-            </td>
-            <td>
-                Nombre
-            </td>
-            <td>
-                Direccion
-            </td>
-            <td>
-                Telefono
-            </td>
-            <td>
-                Camas
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.IdHospital)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camas)
+            </th>
+            <th></th>
         </tr>
     </thead>
-    @if (Model.Count != 0)
-    {
-        <tbody>
-            @foreach (Hospital hospital in Model)
-            {
-                <tr>
-                    <td>
-                        @hospital.IdHospital
-                    </td>
-                    <td>
-                        @hospital.Nombre
-                    </td>
-                    <td>
-                        @hospital.Direccion
-                    </td>
-                    <td>
-                        @hospital.Telefono
-                    </td>
-                    <td>
-                        @hospital.Camas
-                    </td>
-                </tr>
-            }
-        </tbody>
-    }
+    <tbody>
+@foreach (Hospital hospital in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => hospital.IdHospital)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => hospital.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => hospital.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => hospital.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => hospital.Camas)
+            </td>
+            <td>                  
+                    @Html.ActionLink("Detalles", "DetallesHospital", 
+                        new { idHospital=hospital.IdHospital }, 
+                        new { @class = "btn btn-outline-info" }) 
+                    |
+                    @Html.ActionLink("Modificar", "ModificarHospital", 
+                        new { idHospital = hospital.IdHospital },
+                        new { @class = "btn btn-outline-warning" }) 
+                    |
+                    @Html.ActionLink("Eliminar", "EliminarHospital",
+                        new { idHospital = hospital.IdHospital },
+                        new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
+}
+    </tbody>    
 </table>

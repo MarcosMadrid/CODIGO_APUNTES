@@ -1,0 +1,13 @@
+﻿@model Hospital
+
+<form action="ModificarHospital" method="post">
+    <input type="hidden" value="@Model.IdHospital" name="idHospital" disabled/>
+    <input type="text" value="@Model.Nombre" name="Nombre" required />
+    <input type="text" value="@Model.Direccion" name="Direccion" required />
+    <input type="text" value="@Model.Telefono" name="Telefono" required />
+    <input type="number" value="@Model.Camas" name="Camas" required />
+
+    <button type="submit" class="btn btn-info">
+        Modificar
+    </button>
+</form>

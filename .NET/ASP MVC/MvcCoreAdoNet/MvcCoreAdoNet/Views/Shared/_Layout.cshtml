@@ -23,8 +23,10 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <div>
-                        <div class="tm-brand-box">
-                            <h1 class="tm-brand">Upright</h1>
+                        <div class="tm-brand-box text-lg-center">
+                            <h1 class="tm-brand">
+                                ASPMVC EJEMPLOS
+                            </h1>
                         </div>
                         <ul id="tm-main-nav">
                             <li class="nav-item">
@@ -48,6 +50,13 @@
                                     Ver Hospitales
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Doctores" asp-action="DoctoresTable">
+                                    <div class="triangle-right"></div>
+                                    <i class="fas fa-home nav-icon"></i>
+                                    Ver Doctores
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <footer class="mb-3 tm-mt-100">
@@ -57,7 +66,7 @@
             </div>
 
             <div class="tm-main">
-                <section class="tm-section-wrap">
+                <section class="float-right">
                     @RenderBody()
                 </section>
             </div> <!-- .tm-main -->
