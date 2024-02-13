@@ -1,0 +1,44 @@
+﻿<form asp-action="PostDoctor" method="post" class="needs-validation" novalidate>
+
+    <div class="mb-3">
+        <label for="HOSPITAL_COD" class="form-label">Hospital Code</label>
+        <input name="HOSPITAL_COD" type="text" class="form-control" id="HOSPITAL_COD" required />
+        <div class="invalid-feedback">
+            Please provide a hospital code.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="DOCTOR_NO" class="form-label">Doctor Number</label>
+        <input name="DOCTOR_NO" type="text" class="form-control" id="DOCTOR_NO" required />
+        <div class="invalid-feedback">
+            Please provide a doctor number.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="APELLIDO" class="form-label">Last Name</label>
+        <input name="APELLIDO" type="text" class="form-control" id="APELLIDO" required />
+        <div class="invalid-feedback">
+            Please provide a last name.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="ESPECIALIDAD" class="form-label">Speciality</label>
+        <input name="ESPECIALIDAD" type="text" class="form-control" id="ESPECIALIDAD" required />
+        <div class="invalid-feedback">
+            Please provide a speciality.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="SALARIO" class="form-label">Salary</label>
+        <input name="SALARIO" type="number" class="form-control" id="SALARIO" required />
+        <div class="invalid-feedback">
+            Please provide a valid salary.
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Crear Doctor</button>
+</form>

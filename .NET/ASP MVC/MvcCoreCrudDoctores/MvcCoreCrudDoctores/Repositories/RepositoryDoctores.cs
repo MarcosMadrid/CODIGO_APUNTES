@@ -24,7 +24,7 @@ namespace MvcCoreCrudDoctores.Repositories
 
             await _connection.OpenAsync();
             _reader = await _command.ExecuteReaderAsync();
-            while (_reader != null)
+            while (_reader.Read())
             {
                 Doctor doctor = new Doctor();
                 doctor.HOSPITAL_COD = _reader["HOSPITAL_COD"].ToString();
@@ -46,14 +46,14 @@ namespace MvcCoreCrudDoctores.Repositories
         {
             Doctor? doctor = null;
 
-            string sql = "SELECT * FROM DOCTOR WHERE DOCT_NO = @ID";
+            string sql = "SELECT * FROM DOCTOR WHERE DOCTOR_NO = @ID";
             _command.Parameters.Clear();
             _command.Parameters.AddWithValue("ID", idDoctor);
             _command.CommandText = sql;
 
             await _connection.OpenAsync();
             _reader = await _command.ExecuteReaderAsync();
-            while (_reader != null)
+            while (_reader.Read())
             {
                 doctor = new Doctor();
                 doctor.HOSPITAL_COD = _reader["HOSPITAL_COD"].ToString();
@@ -86,8 +86,8 @@ namespace MvcCoreCrudDoctores.Repositories
 
         public async Task UpdateDoctor(Doctor doctor)
         {
-            string sql = "UPDATE DOCTOR SET DOCTOR_NO=@DOCTOR_NO, APELLIDO=@APELLIDO, ESPECIALIDAD=@ESPECIALIDAD, SALARIO=@SALARIO " +
-                " WHERE DOCTOR_NO = @HOSPITAL_COD; ";
+            string sql = "UPDATE DOCTOR SET HOSPITAL_COD=@HOSPITAL_COD, APELLIDO=@APELLIDO, ESPECIALIDAD=@ESPECIALIDAD, SALARIO=@SALARIO " +
+                " WHERE DOCTOR_NO = @DOCTOR_NO ;";
             _command.Parameters.Clear();
             _command.Parameters.AddWithValue("HOSPITAL_COD", doctor.HOSPITAL_COD);
             _command.Parameters.AddWithValue("DOCTOR_NO", doctor.DOCTOR_NO);
@@ -108,8 +108,8 @@ namespace MvcCoreCrudDoctores.Repositories
         public async Task InsertDoctor(Doctor doctor)
         {
             string sql = "INSERT INTO DOCTOR VALUES " +
-                "(HOSPITAL_COD=@HOSPITAL_COD, DOCTOR_NO=@DOCTOR_NO, " +
-                " APELLIDO=@APELLIDO, ESPECIALIDAD=@ESPECIALIDAD, SALARIO=@SALARIO) ;";
+                "(@HOSPITAL_COD, @DOCTOR_NO, " +
+                " @APELLIDO, @ESPECIALIDAD, @SALARIO) ;";
             _command.Parameters.Clear();
             _command.Parameters.AddWithValue("HOSPITAL_COD", doctor.HOSPITAL_COD);
             _command.Parameters.AddWithValue("DOCTOR_NO", doctor.DOCTOR_NO);

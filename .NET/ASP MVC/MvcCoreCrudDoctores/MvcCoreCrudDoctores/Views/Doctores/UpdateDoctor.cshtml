@@ -1,0 +1,13 @@
+﻿@model Doctor
+
+<form asp-action="UpdateDoctor" method="post" class="needs-validation" novalidate>
+    @foreach(var data in typeof(Doctor).GetProperties())
+    {
+        <div class="mb-3">
+            <label for="@data.Name" class="form-label">@data.Name</label>
+            <input name="@data.Name" value="@data.GetValue(Model)" type="text" class="form-control" id="@data.Name" required />
+        </div>        
+    }
+
+    <button class="btn btn-primary" type="submit">Cambiar Doctor</button>
+</form>

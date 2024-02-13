@@ -9,9 +9,9 @@ namespace MvcCoreCrudDoctores.Controllers
         RepositoryDoctores repositoryDoctores = new RepositoryDoctores();
 
         [HttpGet]
-        public IActionResult DoctoresTable()
+        public async Task<IActionResult> DoctoresTableAsync()
         {
-            List<Doctor> doctores = repositoryDoctores.GetDoctoresAsync().Result;
+            List<Doctor> doctores = await repositoryDoctores.GetDoctoresAsync();
             return View(doctores);
         }
 
@@ -60,7 +60,7 @@ namespace MvcCoreCrudDoctores.Controllers
             }
             else
             {
-                return View();
+                return View(doctor);
             }
         }
     }

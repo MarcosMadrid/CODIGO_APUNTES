@@ -1,0 +1,12 @@
+﻿@model Doctor
+
+<ul>
+    @foreach(var data in typeof(Doctor).GetProperties())
+    {
+    <li>
+        @data.Name: @data.GetValue(Model)
+    </li>        
+    }
+
+    @Html.ActionLink("Volver", "DoctoresTable", "Doctores", new{}, new{@class="btn btn-primary"})
+</ul>
