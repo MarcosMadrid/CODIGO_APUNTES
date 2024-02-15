@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="DiaSemanaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form01SumarNumeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form27ColeccionBinaryMascotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormDNIValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormPosicionColores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormValidarISBN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormValidEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NumerosRandomList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

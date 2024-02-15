@@ -1,0 +1,22 @@
+﻿@model TablaMultiplicarModel
+
+<form action="" method="post">
+    <input name="num"/>
+    <button type="submit">Multiplicar</button>
+</form>
+
+
+@if(@ViewData["Num"] != null){
+<table class="table">
+    @for(int index = 0; index <= 10; index++) {
+        <tr>
+            <td>
+                @Model.TablaMultiplicarOperaciones[index]
+            </td>
+            <td>
+               @Model.TablaMultiplicarResultados[index]
+            </td>
+        </tr>
+    }
+</table>
+}

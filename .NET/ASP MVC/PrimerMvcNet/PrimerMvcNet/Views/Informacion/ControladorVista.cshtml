@@ -1,0 +1,19 @@
+﻿@using System.Reflection
+@model PrimerMvcNet.Models.Persona;
+
+
+<ul class="list-group">
+@foreach (PropertyInfo data in typeof(Persona).GetProperties())
+{
+    <li class="list-group-item">@data.Name: @data.GetValue(Model)</li>
+}
+</ul>
+
+<span class="btn btn-success">
+@Html.ActionLink("Text link","ControladorVistaGet", "Informacion" ,
+    new {
+        app = "val1", 
+        version = 2
+    }
+) 
+</span>

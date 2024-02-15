@@ -1,0 +1,21 @@
+<form #PersonajeForm="ngForm" (submit)="Submit_Personaje(PersonajeForm.form)">
+    <div formGroup="personaje">
+      <div class="mb-3">
+          <label for="Input_IdPersonaje" class="form-label">ID Personaje</label>
+          <input type="text" class="form-control" id="Input_IdPersonaje" aria-describedby="emailHelp" ngModel name="IdPersonaje">    
+        </div>
+        <div class="mb-3">
+          <label for="Input_Nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="Input_Nombre" ngModel name="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="Select_SeriePersonaje" class="form-label">Series</label>
+          <select id="Select_SeriePersonaje" class="form-select" ngModel name="idSerie">
+            <option *ngFor="let serie of series" [value]="serie.idSerie">
+              {{serie.nombre}}
+            </option>
+          </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </form>

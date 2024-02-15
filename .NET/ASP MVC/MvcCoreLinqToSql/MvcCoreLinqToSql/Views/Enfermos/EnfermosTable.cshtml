@@ -1,0 +1,44 @@
+﻿@model List<Enfermo>?
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var field in typeof(Enfermo).GetProperties())
+                {
+                    <th>
+                        @field.Name
+                    </th>
+                }
+                <th>
+                    Opciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Enfermo enfermo in Model)
+            {
+            <tr>
+                @foreach(var field in typeof(Enfermo).GetProperties())
+                {
+                    <td>
+                        @field.GetValue(enfermo)
+                    </td>
+                }
+                <td>
+                    @Html.ActionLink("Eliminar", "DeleteEnfermo","Enfermos", 
+                        new{idEnfermo = enfermo.INSCRIPCION}, new{@class = "btn btn-danger"})
+                    @Html.ActionLink("Detalles", "GetEnfermo","Enfermos", 
+                        new{idEnfermo = enfermo.INSCRIPCION}, new{@class = "btn btn-info"})
+                </td>
+            </tr>                                
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>No hay enfermos</h1>
+}
+

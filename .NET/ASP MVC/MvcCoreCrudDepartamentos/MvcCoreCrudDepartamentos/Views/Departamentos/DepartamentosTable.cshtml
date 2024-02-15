@@ -1,0 +1,47 @@
+﻿@model List<Departamento>
+
+
+@Html.ActionLink("+Crear DEPT", "DepartamentoForm", "Departamentos",
+                    new {}, new { @class = "btn btn-success float-end mb-2" })
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr class="text-start">
+            <th>
+                DEPT_NO
+            </th>
+            <th>
+                DNOMBRE
+            </th>
+            <th>
+                LOC
+            </th>
+            <th>
+                Opciones
+            </th>
+        </tr>          
+    </thead>
+    <tbody>
+        @foreach(Departamento dept in Model)
+        {            
+        <tr>
+            <td>
+                @dept.DEPT_NO
+            </td>
+            <td>
+                @dept.DNOMBRE
+            </td>
+            <td>
+                @dept.LOC
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "DepartamentoDetalles","Departamentos",
+                    new{idDept = dept.DEPT_NO}, new{@class="btn btn-info"})
+                |
+                @Html.ActionLink("Eliminar", "DepartamentoDelete", "Departamentos",
+                    new { idDept = dept.DEPT_NO }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

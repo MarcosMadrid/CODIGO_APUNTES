@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MvcCoreAdoNet.Models.Doctor>
+
+<form action="DoctoresTable" method="post">
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+        <select class="form-select" id="inputGroupSelect01" name="especialidad">
+            @foreach (string especialidad in ViewBag.ESPECIALIDADES)
+            {
+                <option value="@especialidad">@especialidad</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Filtrar</button>
+</form>
+
+<table>
+    <thead class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.DOCTOR_NO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.APELLIDO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.HOSPITAL_COD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.ESPECIALIDAD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.SALARIO)
+            </th>
+            <th>
+                Opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Doctor doctor in Model)
+        {
+            <tr>                
+                    <form action="@Url.Action("ModificarDoctor", "Doctores")" method="post">                   
+                <td>
+                    @Html.TextBox("DOCTOR_NO", doctor.DOCTOR_NO)
+                </td>
+                <td>
+                    @Html.TextBox("APELLIDO", doctor.APELLIDO)
+                </td>
+                <td>
+                    @Html.TextBox("HOSPITAL_COD", doctor.HOSPITAL_COD)
+                </td>
+                <td>
+                    @Html.TextBox("ESPECIALIDAD", doctor.ESPECIALIDAD)
+                </td>
+                <td>
+                    @Html.TextBox("SALARIO", doctor.SALARIO)
+                </td>
+                <td class="d-flex">
+                    <input type="submit" value="Modificar" class="btn btn-outline-warning" />
+                    <input type="button" value="Detalles" class="btn btn-outline-info" />
+                    <input type="button" value="Eliminar" class="btn btn-outline-danger" />
+                </td>
+                    </form>
+            </tr>
+        }
+    </tbody>
+</table>

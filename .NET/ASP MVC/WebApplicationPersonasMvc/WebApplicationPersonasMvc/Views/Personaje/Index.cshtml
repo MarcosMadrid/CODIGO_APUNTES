@@ -1,0 +1,30 @@
+﻿@model List<Personaje>?
+
+    <div class="float-end">
+        @Html.ActionLink("+Crear Personaje", "PersonajeForm", "Personaje",
+            new {}, new{@class="btn btn-success"})
+    </div>
+@if (Model == null )
+{
+    <h1>no hay Personajes</h1>
+}
+else
+{
+        <div class="d-flex flex-lg-wrap">
+        @foreach(Personaje personaje in Model)
+        {
+            <div class="col-lg-4 mt-2">
+                <img class="rounded-circle" src="@personaje.Imagen" alt="Generic placeholder image" width="140" height="140">
+                <h2>@personaje.Nombre</h2>     
+                <div class="d-flex">
+                    @Html.ActionLink("Eliminar", "DeletePersonaje", "Personaje",
+                        new { id = personaje.IDPERSONAJE }, new { @class = "btn btn-danger me-1" })
+                    @Html.ActionLink("Modificar", "UpdatePersonaje", "Personaje",
+                        new { id = personaje.IDPERSONAJE }, new { @class = "btn btn-warning me-1" })
+                    @Html.ActionLink("Ver", "Details", "Personaje",
+                        new{id = personaje.IDPERSONAJE}, new {@class ="btn btn-info me-1"} )
+                </div>
+            </div>
+        }
+        </div>
+}

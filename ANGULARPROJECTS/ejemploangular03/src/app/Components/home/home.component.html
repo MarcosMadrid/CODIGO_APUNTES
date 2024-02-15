@@ -1,0 +1,18 @@
+<table class="table">
+    <tbody>
+        <tr *ngFor="let departamento of departamentos">
+            <td>
+                {{departamento.idDepartamento}}
+            </td>
+            <td>
+                {{departamento.localidad}}
+            </td>
+            <td>
+                {{departamento.nombre}}
+            </td>
+            <td>
+                <button class="btn btn-outline-dark" (click)="Btn_Modificar(departamento)"> Modificar </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

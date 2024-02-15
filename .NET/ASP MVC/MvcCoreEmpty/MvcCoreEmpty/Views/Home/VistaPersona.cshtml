@@ -1,0 +1,23 @@
+﻿@using System.Reflection
+@model Persona
+
+<table class="table">
+    <tr>
+        <tr>
+        @foreach (PropertyInfo data in typeof(Persona).GetProperties())
+        {
+            <th>
+                @data.Name
+            </th>
+        }
+        </tr>
+        <tr>
+        @foreach (PropertyInfo data in typeof(Persona).GetProperties())
+        {
+            <td>
+                @data.GetValue(Model)
+            </td>
+        }
+        </tr>        
+    </tr>
+</table>

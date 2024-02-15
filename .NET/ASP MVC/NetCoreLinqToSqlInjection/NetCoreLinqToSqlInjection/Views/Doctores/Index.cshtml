@@ -1,0 +1,63 @@
+﻿@model List<Doctor>?
+
+    @{
+        List<string>? especialidades = ViewData["ESPECIALIDADES"] as List<string>;
+    }
+
+@if(especialidades != null)
+{
+    <form class="form-group m-3" asp-action="DoctoresEspecialidad">
+        <label for="selectEspecialidades">Especialidad Filter</label>
+        <select class="form-control" id="selectEspecialidades" name="especialidad">
+            @{
+            foreach(string? especialidad in especialidades)
+            {
+                if (especialidad != null)
+                {
+                    <option value="@especialidad">@especialidad.ToUpper()</option>                    
+                }
+            }
+            }
+        </select>
+        <button type="submit" class="btn btn-light mt-1">Filtrar</button>
+    </form>    
+}
+
+@Html.ActionLink("+Crear Doctor", "DoctorForm", new {}, new { @class = "btn btn-success" })
+
+@if(Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var field in typeof(Doctor).GetProperties())
+                {
+                    <th>@field.Name</th>
+                }
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Doctor doctor in Model)
+            {
+            <tr>
+                @foreach(var field in typeof(Doctor).GetProperties())
+                {
+                <td>@field.GetValue(doctor)</td>
+                }
+                <td>
+                    @Html.ActionLink("Detalles", "", 
+                        new{idDoctor = doctor.DOCTOR_NO}, new {@class="btn btn-info"})
+                    @Html.ActionLink("Elimianar", "DeleteDoctor", 
+                        new { idDoctor = doctor.DOCTOR_NO }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>             
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>No doctores</h1>
+}
+

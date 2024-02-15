@@ -1,0 +1,49 @@
+﻿@model List<Empleado>?
+@{
+    List<string> oficiosEmpleados = ViewBag.OFICIOS as List<string>;
+}
+
+    <div>
+        <form asp-action="SearchEmpleadosOficio" method="post">
+            <select name="oficio" >
+            @foreach (string oficio in oficiosEmpleados)
+            {
+                <option value="@oficio">@oficio</option>
+            }
+            </select>
+            <button type="submit" class="btn btn-info">Buscar</button>
+        </form>
+    </div>
+
+    @if (Model == null)
+    {
+        <h1>No se han encontrado empleados con ese oficio</h1>
+    }
+    else
+    {   
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var field in typeof(Empleado).GetProperties())
+                    {
+                    <th>
+                        @field.Name
+                    </th>
+                    }
+                </tr>        
+            </thead>
+            <tbody>
+                @foreach (Empleado empleado in Model)
+                {        
+                <tr>
+                    @foreach(var field in typeof(Empleado).GetProperties())
+                    {
+                    <td>
+                        @field.GetValue(empleado)
+                    </td>
+                    }
+                </tr>
+                }
+            </tbody>
+        </table>
+    }

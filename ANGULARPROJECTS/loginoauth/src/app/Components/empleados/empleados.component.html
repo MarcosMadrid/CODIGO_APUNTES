@@ -1,0 +1,10 @@
+
+<div *ngIf="empleados != null">
+    <table>
+        <tbody>
+            <tr *ngFor="let empleado of empleados">
+                <td>{{empleado.Get_Apellido()}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

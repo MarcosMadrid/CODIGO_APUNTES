@@ -1,0 +1,10 @@
+﻿@using System.Reflection
+@model PrimerMvcNet.Models.Persona;
+
+
+<ul class="list-group">
+    @foreach (PropertyInfo data in typeof(Persona).GetProperties())
+    {
+        <li class="list-group-item">@data.Name: @data.GetValue(Model)</li>
+    }
+</ul>

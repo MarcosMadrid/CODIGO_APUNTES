@@ -1,0 +1,28 @@
+﻿@model MvcCoreCrudDepartamentos.Models.Departamento
+
+
+
+<form asp-action="DepartamentoForm" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="DEPT_NO" />
+
+    <div class="form-group">
+        <label asp-for="DNOMBRE" class="control-label"></label>
+        <input asp-for="DNOMBRE" class="form-control" />
+        <span asp-validation-for="DNOMBRE" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LOC" class="control-label"></label>
+        <input asp-for="LOC" class="form-control" />
+        <span asp-validation-for="LOC" class="text-danger"></span>
+    </div>
+        
+    <button type="submit" class="btn btn-primary">Crear DEPT</button>
+</form>
+
+
+    <p>
+       
+        <a asp-action="Index">Back to List</a>
+    </p>
+

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Doctor>
+
+
+@Html.ActionLink("+Crear Doctor", "PostDoctor", "Doctores",
+    new {}, new { @class = "btn btn-success" })
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.DOCTOR_NO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.APELLIDO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.ESPECIALIDAD)
+            </th>
+            <th>
+                Opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Doctor doctor in Model)
+        {
+        <tr>
+            <td>
+                @doctor.DOCTOR_NO
+            </td>
+            <td>
+                @doctor.APELLIDO
+            </td>
+            <td>
+                @doctor.ESPECIALIDAD
+            </td>
+            <td>
+                    @Html.ActionLink("Detalles", "ViewDoctor", "Doctores", 
+                            new { doctor_cod = doctor.DOCTOR_NO}, new { @class ="btn btn-info" })
+                    @Html.ActionLink("Editar", "UpdateDoctor", "Doctores",
+                             new { doctor_cod = doctor.DOCTOR_NO }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Eliminar", "DeleteDoctor", "Doctores",
+                             new { doctor_cod = doctor.DOCTOR_NO }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>            
+        }
+    </tbody>
+</table>

@@ -31,7 +31,7 @@
         <input type="text" ngModel name="imagen" #Input_Imagen="ngModel" (input)="comic.Set_Imagen(Input_Imagen.value)" [ngModel]="comic.Get_Imagen()" class="form-control" id="Input_Imagen" required>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Crear Comic</button>      
+  <button type="submit" class="btn btn-primary" >Modificar Comic</button>      
 </form>
 
 <form #FormComic="ngForm" name="FormComic" *ngIf="method == 'detalles'">

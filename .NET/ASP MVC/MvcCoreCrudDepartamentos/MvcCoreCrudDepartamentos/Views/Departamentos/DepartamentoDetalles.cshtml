@@ -1,0 +1,14 @@
+﻿@model Departamento?
+
+@if (Model is not null)
+{
+    <form class="card">
+        <input class="input-group" type="number" value="@Model.DEPT_NO" disabled/>
+        <input class="input-group" type="text" value="@Model.DNOMBRE" disabled />
+        <input class="input-group" type="text" value="@Model.LOC" disabled />
+    </form>
+}
+else
+{
+    <h1>No existe departamento</h1>
+}

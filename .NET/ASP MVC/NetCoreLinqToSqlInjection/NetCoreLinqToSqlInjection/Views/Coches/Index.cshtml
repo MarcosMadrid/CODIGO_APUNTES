@@ -1,0 +1,18 @@
+﻿@model ICoche
+
+<div class="card flex-md-row mb-4 col-6 ">
+    <div class="card-body d-flex flex-column align-items-start">
+        <strong class="d-inline-block mb-2 text-primary">@Model.Marca</strong>
+        <h3 class="mb-0">
+        <span class="text-dark" >@Model.Modelo</span>
+        </h3>
+        <div class="mb-1 text-muted">@Model.Velocidad</div>
+    </div>
+    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" 
+     src="~/imgs/@Model.Img" data-holder-rendered="true" style="width: 350px; height: 250px;">
+</div>
+
+<form asp-action="Action">
+    <button class="btn btn-info" name="action" value="acelerar">Acelerar</button>
+    <button class="btn btn-info" name="action" value="frenar">Frenar</button>
+</form>

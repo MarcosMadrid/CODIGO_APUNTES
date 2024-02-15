@@ -1,0 +1,18 @@
+﻿<h1 id="mensajevista">
+    Mi kasa  
+    :(
+</h1>
+
+<button id="botonMensaje" class="btn btn-danger">
+    Btn Mensaje
+</button>
+
+@section scripts{
+<script>
+    $(document).ready(function(){
+        $("#botonMensaje").click(function(){
+            $("#mensajevista").text("Btn clicked");
+        })
+    })
+</script>
+}

@@ -1,0 +1,10 @@
+﻿@model Enfermo
+
+<ul>
+    @foreach(var field in typeof(Enfermo).GetProperties())
+    {
+        <li>
+            @field.Name: @field.GetValue(Model)
+        </li>        
+    }
+</ul>
