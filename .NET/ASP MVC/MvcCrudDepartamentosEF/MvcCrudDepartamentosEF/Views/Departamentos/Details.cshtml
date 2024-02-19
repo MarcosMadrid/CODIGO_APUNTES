@@ -1,0 +1,15 @@
+﻿@model Departamento?
+
+@if(Model != null)
+{
+    <ul>
+        @foreach (var field in typeof(Departamento).GetProperties())
+        {
+            <li>@field.Name: @field.GetValue(Model)</li>                    
+        }
+    </ul>
+}
+else
+{
+    <h1>No hay departamento</h1>
+}

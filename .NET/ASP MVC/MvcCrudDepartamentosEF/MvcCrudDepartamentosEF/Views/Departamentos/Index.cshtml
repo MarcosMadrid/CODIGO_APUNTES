@@ -1,0 +1,42 @@
+﻿@model List<Departamento>?
+
+@Html.ActionLink("Crear Departamento", "InsertForm", "Departamentos",
+      new {}, new { @class = "btn btn-success" })
+
+@if(Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var field in typeof(Departamento).GetProperties())
+                {
+                    <td>@field.Name</td>
+                }
+                <td>Opciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Departamento departamento in Model)
+            {                            
+            <tr>
+                @foreach (var field in typeof(Departamento).GetProperties())
+                {
+                    <td>@field.GetValue(departamento)</td>
+                }
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "Departamentos",
+                        new{id = departamento.Id}, new{@class="btn btn-danger"})
+                    @Html.ActionLink("Details", "Details", "Departamentos",
+                        new { id = departamento.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Update", "UpdateForm", "Departamentos",
+                        new { id = departamento.Id }, new { @class = "btn btn-warning" })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>No hay departamentos</h1>
+}

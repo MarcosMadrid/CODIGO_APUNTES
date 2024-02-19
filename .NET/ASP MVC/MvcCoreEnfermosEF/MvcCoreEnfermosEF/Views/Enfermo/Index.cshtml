@@ -1,0 +1,34 @@
+﻿@model List<Enfermo>?
+
+@if(Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var field in typeof(Enfermo).GetProperties())
+                {
+                    <th>
+                        @field.Name
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Enfermo enfermo in Model)
+            {
+                <tr>
+                    @foreach (var field in typeof(Enfermo).GetProperties())
+                    {
+                        <td>
+                            @field.GetValue(enfermo)
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>No hay Enfemos</h1>
+}
