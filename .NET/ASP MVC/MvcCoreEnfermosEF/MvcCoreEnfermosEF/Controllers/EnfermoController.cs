@@ -18,5 +18,39 @@ namespace MvcCoreEnfermosEF.Controllers
             List<Enfermo> enfermo = enfermoRepository.GetEnfermos();
             return View(enfermo);
         }
+
+        public IActionResult Details(string id)
+        {
+            Enfermo? enfermo = enfermoRepository.GetEnfermo(id);
+            return View(enfermo);
+        }
+
+        public IActionResult UpdateForm(string id)
+        {
+            return View();
+        }
+
+        public IActionResult UpdateAction(Enfermo enfermo)
+        {
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteEnfermo(string id)
+        {
+            enfermoRepository.DeleteEnfermo(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult InsertForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult InsertForm(Enfermo enfermo)
+        {
+            enfermoRepository.InsertEnfermo(enfermo.Apellido, enfermo.NSS, enfermo.GeneroBioogico, enfermo.Direccion, enfermo.Fecha_Nac);
+            return RedirectToAction("Index");
+        }
     }
 }

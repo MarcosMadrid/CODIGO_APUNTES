@@ -1,34 +1,66 @@
-﻿@model List<Enfermo>?
+﻿@model IEnumerable<MvcCoreEnfermosEF.Models.Enfermo>
 
-@if(Model != null)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                @foreach (var field in typeof(Enfermo).GetProperties())
-                {
-                    <th>
-                        @field.Name
-                    </th>
-                }
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (Enfermo enfermo in Model)
-            {
-                <tr>
-                    @foreach (var field in typeof(Enfermo).GetProperties())
-                    {
-                        <td>
-                            @field.GetValue(enfermo)
-                        </td>
-                    }
-                </tr>
-            }
-        </tbody>
-    </table>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-else
-{
-    <h1>No hay Enfemos</h1>
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="InsertForm">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Inscripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Nac)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeneroBioogico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NSS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inscripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Nac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeneroBioogico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NSS)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { id= item.Inscripcion }) |
+                    @Html.ActionLink("Delete", "DeleteEnfermo", new { id = item.Inscripcion })
+            </td>
+        </tr>
 }
+    </tbody>
+</table>
