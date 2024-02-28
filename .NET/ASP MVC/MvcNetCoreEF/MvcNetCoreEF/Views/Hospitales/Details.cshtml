@@ -1,0 +1,14 @@
+﻿@model Hospital?
+
+@if(Model != null)
+{
+<ul>
+    @foreach(var field in typeof(Hospital).GetProperties())
+    {
+    <li>
+        @field.Name: @field.GetValue(Model)
+    </li>            
+    }
+</ul>
+    
+}

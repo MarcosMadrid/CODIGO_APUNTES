@@ -6,7 +6,7 @@ namespace MvcCoreCrudDoctores.Repositories
 {
     public class RepositoryDoctores
     {
-        SqlConnection _connection = new SqlConnection("Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=HOSPITALBBDD;User ID=SA;Password=MCSD2023;Encrypt=True;Trust Server Certificate=True");
+        SqlConnection _connection = new SqlConnection("Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=HOSPITALBBDD;User ID=SA;Password=1234;Encrypt=True;Trust Server Certificate=True");
         SqlCommand _command;
         SqlDataReader _reader;
         public RepositoryDoctores()

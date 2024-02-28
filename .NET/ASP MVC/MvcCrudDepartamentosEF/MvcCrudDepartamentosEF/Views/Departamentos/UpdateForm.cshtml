@@ -1,0 +1,16 @@
+﻿@model Departamento?
+
+@if (Model != null)
+{
+    <form asp-action="Edit">
+        <input name="Id" placeholder="Id" value="@Model.Id" required />
+        <input name="Name" placeholder="Name" value="@Model.Name" required />
+        <input name="Localidad" placeholder="Localidad" value="@Model.Localidad" required />
+
+        <button type="submit" class="btn btn-success">Crear </button>
+    </form>
+}
+else
+{
+    <h1>No hay departamento</h1>
+}

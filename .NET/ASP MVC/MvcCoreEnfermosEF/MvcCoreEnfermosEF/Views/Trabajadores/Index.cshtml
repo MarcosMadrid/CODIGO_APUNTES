@@ -1,0 +1,47 @@
+﻿@model TrabajadoresModel
+
+@{
+    ViewData["Title"] = "Index";
+    List<string>? oficios = ViewData["OFICIOS"] as List<string>;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<form asp-action="Index" method="post">
+    <select name="oficio">
+        @foreach (string oficio in oficios)
+        {
+            <option value="@oficio">@oficio</option>            
+        }
+    </select>
+    <button type="submit">Buscar</button>
+</form>
+
+<p>
+ Media Salarial: @Model.MediaSalarial || Total: @Model.Personas  || Total Salarios: @Model.SumaSalarial
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (var field in typeof(Trabajador).GetProperties())
+            {
+            <th>
+                @field.Name
+            </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Trabajador item in Model.TrabajadorList) 
+        {
+        <tr>    
+            @foreach (var field in typeof(Trabajador).GetProperties())
+            {
+            <td>
+                @field.GetValue(item)
+            </td>                    
+            }           
+        </tr>
+        }
+    </tbody>

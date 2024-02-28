@@ -1,0 +1,44 @@
+﻿@model List<Hospital>?
+
+
+@Html.ActionLink("Crear", "HospitalForm", "Hospitales",
+        new {}, new { @class = "btn btn-success" })
+
+@if(Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var field in typeof(Hospital).GetProperties())
+                {
+                    <th>
+                        @field.Name
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Hospital hospital in Model)
+            {
+            <tr>
+                @foreach(var field in typeof(Hospital).GetProperties())
+                {
+                <td>
+                    @field.GetValue(hospital)
+                </td>
+                }
+                <td>
+                    @Html.ActionLink("Details","Details","Hospitales",
+                        new{id = hospital.IdHospital}, new{@class = "btn btn-info"})
+                        @Html.ActionLink("Delete", "DeleteHospital", "Hospitales",
+                        new { id = hospital.IdHospital }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>                    
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>No hay hospuitales</h1>
+}
