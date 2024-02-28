@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.NET",
+    "\\.NET\\ASP MVC",
+    "\\.NET\\ASP MVC\\MvcCoreEmpty"
   ],
-  "SelectedNode": "\\MvcCoreCrudDoctores.sln",
+  "SelectedNode": "\\.NET\\ASP MVC\\MvcCoreEmpty\\MvcCoreEmpty.sln",
   "PreviewInSolutionExplorer": false
 }
