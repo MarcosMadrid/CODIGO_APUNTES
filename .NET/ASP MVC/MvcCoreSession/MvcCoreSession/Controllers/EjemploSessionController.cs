@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MvcCoreSession.Helper.HelperBinarySection;
+using MvcCoreSession.Helpers.Path;
 using MvcCoreSession.Models;
 
 namespace MvcCoreSession.Controllers
 {
     public class EjemploSessionController : Controller
     {
-        private IWebHostEnvironment webHost;
+
+        private HelperPathProvider helperPathProvider;
         static int numero = 1;
 
-        public EjemploSessionController(IWebHostEnvironment webHost)
+        public EjemploSessionController(HelperPathProvider pathProvider)
         {
-            this.webHost = webHost;
+            this.helperPathProvider = pathProvider;
         }
 
         public IActionResult Index()
@@ -103,14 +105,13 @@ namespace MvcCoreSession.Controllers
         [HttpPost]
         public async Task<IActionResult> FormFile(IFormFile file)
         {
-            string tempFolder = this.webHost.WebRootPath;
-            string fileName = file.FileName;
-            string path = Path.Combine(tempFolder, fileName);
-            using (Stream stream = new FileStream(path, FileMode.Create))
+            string pathFile = this.helperPathProvider.MapPath(file.FileName, Folders.Uploads);
+            string pathServer = this.helperPathProvider.CreateHostPath(pathFile);
+            using (Stream stream = new FileStream(pathFile, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
-            
+            ViewBag.src = pathServer;
             return View();
         }
     }
