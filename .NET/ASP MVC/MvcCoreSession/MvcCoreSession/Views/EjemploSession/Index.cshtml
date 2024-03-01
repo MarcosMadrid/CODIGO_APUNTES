@@ -1,0 +1,16 @@
+﻿@using MvcCoreSession.Extensions
+@ViewBag.NUMERO
+@{
+    Mascota? mascota = Context.Session.GetObject<Mascota>("MASCOTA");
+}
+
+<h3>@Context.Session.GetString("nombre")</h3>
+<h3>@Context.Session.GetString("hora")</h3>
+
+
+@if (mascota != null)
+{
+    @mascota.Nombre
+    @mascota.Raza
+    @mascota.Edad
+}
