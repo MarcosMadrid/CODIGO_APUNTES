@@ -1,0 +1,10 @@
+﻿@model string[]
+
+<h5>@ViewBag.DIRECCION</h5>
+<ul class="list-group">
+    @foreach(string pedido in Model){
+        <li>
+            @pedido
+        </li>
+    }
+</ul>
