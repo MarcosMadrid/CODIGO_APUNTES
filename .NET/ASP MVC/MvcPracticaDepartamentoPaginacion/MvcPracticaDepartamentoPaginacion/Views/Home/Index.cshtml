@@ -1,0 +1,66 @@
+﻿@using System.Text.Json
+@model List<Departamento>
+
+@{
+    ViewData["Title"] = "Home Page";
+    string? JsonDept = TempData["DEPT_NO"]?.ToString();
+    Departamento? departamento = null;
+    if (JsonDept != null)
+    {
+        departamento = JsonSerializer.Deserialize<Departamento>(JsonDept)!;       
+    }
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills"> 
+            @foreach(Departamento dept in Model)
+            {
+            <li class="nav-item">
+                 <a class="nav-link" asp-action="Index" asp-route-dept_no="@dept.Id">@dept.Nombre</a>
+            </li>                
+            }
+        </ul>
+    </div>
+    <div class="card-body">
+        <div id="containerEmpleados">
+            @await Component.InvokeAsync("DetailsEmpleado")
+        </div>
+        <nav>
+            @if(departamento != null)
+            {
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link"onclick="GoToPage(@TempData["BACK"], @departamento.Id)" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" onclick="GoToPage(@TempData["ACTUAL"], @departamento.Id)">@TempData["ACTUAL"]</a></li>
+                <li class="page-item">
+                    <a class="page-link" onclick="GoToPage(@TempData["NEXT"], @departamento.Id)">Next</a>
+                </li>
+            </ul>                
+            }
+        </nav>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        function GoToPage(page, dept_no){
+            $(document).ready(function () {                
+                $.ajax({
+                    url: '/Home/EmpleadoViewComponent',
+                    type: 'GET',
+                    data: { dept_no: dept_no, posicion: page },
+                    success: function (response) {                      
+                        console.log(response);
+                        $("#containerEmpleados").html(response);
+                    },
+                    error: function (xhr, status, error) {                        
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        }
+    </script>
+}

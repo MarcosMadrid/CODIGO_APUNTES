@@ -1,15 +1,13 @@
 ﻿@using System.Text.Json
-@using Microsoft.Extensions.Caching.Memory
 @model IEnumerable<MvcCoreEmpleados.Models.Empleado>
-@inject IMemoryCache memoryCache
 
 @{
     ViewData["Title"] = "SessionEmpleadosOK";
-    List<Empleado>? empleadosFavoritos = memoryCache.Get<List<Empleado>>("FAVORITOS");
+    List<Empleado> empleadosFavoritos = memoryCache.Get<List<Empleado>>("FAVORITOS") ?? new List<Empleado>();
     List<int>? ids = JsonSerializer.Deserialize<List<int>>(Context.Session.GetString("IDEMPLEADOS")!);
 }
 
-<a asp-action="EmpleadosAlmacenadosOk" >@ViewBag.MENSAJE</a>
+<a asp-action="EmpleadosAlmacenadosOk" >@ViewBag.MENSAJE  ||  Empleados Favoritos : @empleadosFavoritos.Count()</a>
 
 @if(Model is not null)
 {
@@ -59,18 +57,17 @@
                         @Html.ActionLink("Guardar", "SessionEmpleadosOK", new { id = item.IdEmpleado }, new { @class = "btn btn-success" })
                     }
                 }
-                @if(empleadosFavoritos is not null)
+               
+                @if (empleadosFavoritos.Select(empleado => empleado.IdEmpleado).ToList().Contains(item.IdEmpleado))
                 {
-                    if (empleadosFavoritos.Contains(item))
-                    {
-                        @Html.ActionLink("Quitar de Favoritos", "EmpleadosFavoritos", new { id = item.IdEmpleado }, new { @class = "btn btn-warning" })
-                    }
-                    else
-                    {
-                        @Html.ActionLink("Favorito", "EmpleadosFavoritos", new { id = item.IdEmpleado }, new { @class = "btn btn-success" })
-
-                    }
+                    @Html.ActionLink("Quitar de Favoritos", "EmpleadosFavoritos", new { id = item.IdEmpleado }, new { @class = "btn btn-warning" })
                 }
+                else
+                {
+                    @Html.ActionLink("Favorito", "EmpleadosFavoritos", new { id = item.IdEmpleado }, new { @class = "btn btn-success" })
+
+                }
+                
             </td>
         </tr>
 }

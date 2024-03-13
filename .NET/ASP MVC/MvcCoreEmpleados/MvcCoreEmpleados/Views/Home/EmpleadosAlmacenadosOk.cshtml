@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "EmpleadosAlmacenadosOk";
+    List<Empleado>? empleadosFavoritos = memoryCache.Get<List<Empleado>>("FAVORITOS");
 }
 
 <h1>EmpleadosAlmacenadosOk</h1>
@@ -43,3 +44,53 @@
 }
     </tbody>
 </table>
+
+<hr />
+<h3>Favoritos</h3>
+
+@if (empleadosFavoritos is not null)
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oficio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in empleadosFavoritos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEmpleado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellidos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oficio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salario)
+                </td>
+            </tr>
+        }
+    </tbody>
+    </table>
+}
+else
+{
+    <h4>No hay empleados Favoritos</h4>
+}
+

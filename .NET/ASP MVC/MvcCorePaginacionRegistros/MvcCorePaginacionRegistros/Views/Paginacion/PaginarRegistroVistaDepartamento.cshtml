@@ -1,0 +1,24 @@
+﻿@model VistaDepartamento
+ 
+ 
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" asp-action="PaginarRegistroVistaDepartamento" asp-controller="Paginacion" 
+            asp-route-id="@ViewData["BACKWARD"]">Previous</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" asp-action="PaginarRegistroVistaDepartamento" asp-controller="Paginacion"
+               asp-route-id="@ViewData[" ACTUAL"]">@ViewData["ACTUAL"]</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" asp-action="PaginarRegistroVistaDepartamento" asp-controller="Paginacion"
+               asp-route-id="@ViewData["FORWARD"]">Next</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" asp-action="PaginarRegistroVistaDepartamento" asp-controller="Paginacion"
+            asp-route-id="@ViewData["LAST"]">...@ViewData["LAST"]</a>
+        </li>
+    </ul>
+</nav>

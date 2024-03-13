@@ -57,11 +57,19 @@ namespace MvcCoreEmpleados.Controllers
             }
             else
             {
-                listEmpleados = await repository.GetEmpleadosAsync();
+                if (!HttpContext.Session.Keys.Contains("IDEMPLEADOS"))
+                {
+                    listEmpleados = await repository.GetEmpleadosAsync();
+                }
+                else
+                {
+                    idsEmpleados = HttpContext.Session.GetObject<List<int>>("IDEMPLEADOS")!;
+                }
             }
-
-            HttpContext.Session.SetObject("IDEMPLEADOS", idsEmpleados);
+            
             listEmpleados = await repository.GetEmpleadosAsync();
+            HttpContext.Session.SetObject("IDEMPLEADOS", idsEmpleados);
+
 
             ViewData["MENSAJE"] = "Empleados guardados:" + idsEmpleados.Count();
             return View(listEmpleados);
@@ -75,15 +83,15 @@ namespace MvcCoreEmpleados.Controllers
             return View(empleados);
         }
 
-        public async Task<IActionResult> EmpleadosFavoritos(int? id)
+        public async Task<IActionResult> EmpleadosFavoritos(int id)
         {
             List<Empleado>? empleadosFavoritos = null;
             Empleado? empleado = null;
-            if (id != null)
-            {
-                empleado = await repository.GetEmpleadoAsync(id.Value);
-            }
+
+            empleado = await repository.GetEmpleadoAsync(id);
+
             if (memoryCache.TryGetValue("FAVORITOS", out empleadosFavoritos))
+
             {
                 if (empleadosFavoritos is null)
                 {
@@ -92,10 +100,18 @@ namespace MvcCoreEmpleados.Controllers
 
                 if (empleado is not null)
                 {
-                    empleadosFavoritos.Add(empleado);
+                    if (!empleadosFavoritos.Select(empleado => empleado.IdEmpleado).ToList().Contains(empleado.IdEmpleado))
+                    {
+                        empleadosFavoritos.Add(empleado);
+                        memoryCache.Set("FAVORITOS", empleadosFavoritos);
+                    }
+                    else
+                    {
+                        empleadosFavoritos.RemoveAll(empleadoRow => empleadoRow.IdEmpleado == empleado.IdEmpleado);
+                        memoryCache.Set("FAVORITOS", empleadosFavoritos);
+                    }
                 }
             }
-            memoryCache.Set("FAVORITOS", empleadosFavoritos);
             return RedirectToAction("SessionEmpleadosOK");
         }
 
