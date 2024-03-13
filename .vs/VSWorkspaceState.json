@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.NET",
+    "\\.NET\\ASP MVC"
   ],
-  "SelectedNode": "\\MvcCoreEnfermosEF.sln",
   "PreviewInSolutionExplorer": false
 }
