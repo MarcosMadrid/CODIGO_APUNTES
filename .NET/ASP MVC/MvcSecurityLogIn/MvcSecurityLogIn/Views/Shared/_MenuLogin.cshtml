@@ -1,0 +1,14 @@
+﻿@if(Context.User.Identity.IsAuthenticated == false){
+
+    <a class="btn btn-" asp-action="Perfil"
+           asp-controller="User">
+            Log In
+    </a>
+   
+}
+else
+{
+      
+    <a class="btn btn-danger" asp-action="LogOut" asp-controller="Managed">Log Out</a>               
+  
+}

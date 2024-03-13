@@ -1,0 +1,26 @@
+﻿@model User?
+@{
+}
+
+<form asp-action="LogIn" method="post" class="form">
+    <input name="email" type="email" placeholder="email"/>
+    <input name="password" type="password" placeholder="password"/>
+    <button type="submit" >LogIn</button>
+</form>
+<p></p>
+<form asp-action="SignUp" method="post" class="form">
+    <input name="Nombre" placeholder="Nombre" />
+    <input name="Email" type="email" placeholder="Email" />
+    <input name="password" type="password" placeholder="Password" />
+    <input name="Imagen" placeholder="Imagen" />   
+    <button type="submit">SigUp</button>
+</form>
+
+@if(Model == null)
+{
+    <h1>No estas logeado</h1>
+}
+else
+{
+    <h1>logged</h1>
+}

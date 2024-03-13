@@ -1,0 +1,20 @@
+﻿@model List<Departamento>
+@{
+    var idDeptFromQuery = Convert.ToInt32(Context.Request.Query["IdDept"]);
+}
+@if(Model != null)
+{
+    
+<ul class="nav nav-tabs card-header-tabs">
+    @foreach (var dept in Model)
+    {
+        <li class="nav-item">
+                <a class="nav-link @(dept.Id == idDeptFromQuery ? "active border-bottom-0 " : "border-bottom")"
+                   asp-action="EmpleadosDepartamento" asp-controller="Empleados" asp-route-IdDept="@dept.Id">
+                @dept.Nombre | @dept.Localidad
+            </a>
+        </li>
+    }
+</ul>
+
+}

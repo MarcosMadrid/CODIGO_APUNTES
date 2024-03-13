@@ -1,0 +1,76 @@
+﻿@using System.Text.Json
+@model IEnumerable<MvcCoreEmpleados.Models.Empleado>
+
+@{
+    ViewData["Title"] = "SessionEmpleadosOK";
+    List<Empleado> empleadosFavoritos = memoryCache.Get<List<Empleado>>("FAVORITOS") ?? new List<Empleado>();
+    List<int>? ids = JsonSerializer.Deserialize<List<int>>(Context.Session.GetString("IDEMPLEADOS")!);
+}
+
+<a asp-action="EmpleadosAlmacenadosOk" >@ViewBag.MENSAJE  ||  Empleados Favoritos : @empleadosFavoritos.Count()</a>
+
+@if(Model is not null)
+{
+    
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oficio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oficio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salario)
+            </td>
+            <td>
+                @if(ids is not null)
+                {
+                @if (ids.Contains(item.IdEmpleado))
+                    {
+                        @Html.ActionLink("Borrar", "SessionEmpleadosOK", new { id = item.IdEmpleado }, new {@class = "btn btn-danger"})
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Guardar", "SessionEmpleadosOK", new { id = item.IdEmpleado }, new { @class = "btn btn-success" })
+                    }
+                }
+               
+                @if (empleadosFavoritos.Select(empleado => empleado.IdEmpleado).ToList().Contains(item.IdEmpleado))
+                {
+                    @Html.ActionLink("Quitar de Favoritos", "EmpleadosFavoritos", new { id = item.IdEmpleado }, new { @class = "btn btn-warning" })
+                }
+                else
+                {
+                    @Html.ActionLink("Favorito", "EmpleadosFavoritos", new { id = item.IdEmpleado }, new { @class = "btn btn-success" })
+
+                }
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}
