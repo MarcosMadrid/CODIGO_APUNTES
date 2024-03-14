@@ -3,12 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace MvcNetCoreSeguridadEmpleados.Filters
+namespace NetCoreSeguridadDoctores.Filters
 {
-    public class AuthorizeEmpleadosAttribute : AuthorizeAttribute, IAuthorizationFilter
+    public class AuthenFilterUser : AuthorizeAttribute, IAuthorizationFilter
     {
-        public AuthorizeEmpleadosAttribute() { }
-
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             if (context.HttpContext.User.Identity!.IsAuthenticated == false)
@@ -25,15 +23,6 @@ namespace MvcNetCoreSeguridadEmpleados.Filters
                 provider.SaveTempData(context.HttpContext, TempData);
 
                 context.Result = RedirectTo("Managed", "LogIn");
-            }
-            else
-            {
-                //if (context.HttpContext.User.IsInRole("PRESIDENTE") == false
-                //    && context.HttpContext.User.IsInRole("ANALISTA") == false
-                //    && context.HttpContext.User.IsInRole("DIRECTOR") == false)
-                //{
-                //    context.Result = this.RedirectTo("Managed", "ErrorAcceso");
-                //}
             }
         }
 

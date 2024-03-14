@@ -1,0 +1,9 @@
+﻿@if(User.Identity!.IsAuthenticated == false){
+    <a class="btn btn-primary" asp-action="Index" asp-controller="Doctores">Log In</a>
+}
+else
+{
+    <div>
+        <a class="btn btn-danger" asp-action="LogOut" asp-controller="Managed">Log Out</a>
+    </div>
+}

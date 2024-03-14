@@ -1,8 +1,16 @@
-﻿@if(Context.User.Identity.IsAuthenticated == false)
+﻿@if(Context.User.Identity!.IsAuthenticated == false)
 {
-    <a class="btn btn-primary" asp-action="Index" asp-controller="Empleados">Log In</a>
+    <a class="btn btn-primary p-2" asp-action="Index" asp-controller="Empleados">Log In</a>
 }
 else
 {
-    <a asp-action="Empleados" asp-controller="Perfil">@Context.User.Identity.Name</a>
+    <div class="row d-flex p-2">
+        <div class="col">
+            <a asp-action="Perfil" asp-controller="Empleados">@Context.User.Identity.Name</a>
+        </div>
+        <div class="col">
+            <a class="btn btn-danger" asp-action="LogOut" asp-controller="Managed">Log Out</a>
+        </div>
+    </div>
+
 }

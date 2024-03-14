@@ -6,7 +6,7 @@ namespace MvcNetCoreSeguridadEmpleados.Repositories
 {
     public class RepositoryEmpleados
     {
-        EmpleadosContext empleados;
+        readonly EmpleadosContext empleados;
         public RepositoryEmpleados(EmpleadosContext empleados)
         {
             this.empleados = empleados;
@@ -27,7 +27,7 @@ namespace MvcNetCoreSeguridadEmpleados.Repositories
         public async Task<Empleado?> GetEmpleadoAsync(string apellido, int id)
         {
             return
-                await empleados.Empleados.FirstOrDefaultAsync(emp => emp.Id.Equals(id) && emp.Apellido.Equals(apellido));
+                await empleados.Empleados.FirstOrDefaultAsync(emp => emp.Id.Equals(id) && emp.Apellido!.Equals(apellido));
         }
 
         public async Task<List<Empleado>> GetEmpleadosDepartamentoAsync(int id_dept)

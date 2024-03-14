@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NetCoreSeguridadDoctores.Models.Enfermo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div id="renderTableEnfermos">
+
+</div>
+
+
+@section Scripts {
+    <script>
+        $(function(){
+            $("#renderTableEnfermos").load("/Doctores/EnfermosPartialView");
+        })
+
+        function DeleteEnfermo(nss) {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        method: "POST",
+                        url: "/Doctores/DeleteEnfermo?id=" + nss
+                    }).done(function () {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Enfermo eliminado.",
+                            icon: "success"
+                        });                            
+                        $("#renderTableEnfermos").load("/Doctores/EnfermosPartialView");                                                               
+                    }).fail(function () {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Something went wrong with the request!",
+                            footer: '<a href="#">Why do I have this issue?</a>'
+                        });
+                    });
+                }
+            });
+        }
+    </script>
+}
