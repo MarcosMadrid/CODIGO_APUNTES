@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace MvcNetCoreSeguridadEmpleados.Filters
 {
@@ -10,19 +11,39 @@ namespace MvcNetCoreSeguridadEmpleados.Filters
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            if (context.HttpContext.User.Identity.IsAuthenticated == false)
+            if (context.HttpContext.User.Identity!.IsAuthenticated == false)
             {
-                this.RedirectTo("Managed", "LogIn");
+                ITempDataProvider? provider = context.HttpContext.RequestServices.GetService<ITempDataProvider>();
+
+                var TempData = provider!.LoadTempData(context.HttpContext);
+                string? controller = context.RouteData.Values["controller"]!.ToString();
+                string? action = context.RouteData.Values["action"]!.ToString();
+
+                TempData["controller"] = controller;
+                TempData["action"] = action;
+
+                provider.SaveTempData(context.HttpContext, TempData);
+
+                context.Result = RedirectTo("Managed", "LogIn");
+            }
+            else
+            {
+                //if (context.HttpContext.User.IsInRole("PRESIDENTE") == false
+                //    && context.HttpContext.User.IsInRole("ANALISTA") == false
+                //    && context.HttpContext.User.IsInRole("DIRECTOR") == false)
+                //{
+                //    context.Result = this.RedirectTo("Managed", "ErrorAcceso");
+                //}
             }
         }
 
-        private RedirectToRouteResult RedirectTo(string controller, string action)
+        private static RedirectToRouteResult RedirectTo(string controller, string action)
         {
             RouteValueDictionary ruta =
-                new RouteValueDictionary(
-                    new { action = action, controller = controller }
+                new(
+                    new { action, controller }
                 );
-            RedirectToRouteResult redirect = new RedirectToRouteResult(ruta);
+            RedirectToRouteResult redirect = new(ruta);
             return redirect;
         }
     }

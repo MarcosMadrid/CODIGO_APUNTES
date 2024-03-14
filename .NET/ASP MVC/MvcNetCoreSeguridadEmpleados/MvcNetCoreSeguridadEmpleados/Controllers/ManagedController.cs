@@ -3,13 +3,14 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using MvcNetCoreSeguridadEmpleados.Models;
 using MvcNetCoreSeguridadEmpleados.Repositories;
+using System;
 using System.Security.Claims;
 
 namespace MvcNetCoreSeguridadEmpleados.Controllers
 {
     public class ManagedController : Controller
     {
-        RepositoryEmpleados empleados;
+        readonly RepositoryEmpleados empleados;
 
         public ManagedController(RepositoryEmpleados empleados)
         {
@@ -32,28 +33,39 @@ namespace MvcNetCoreSeguridadEmpleados.Controllers
             }
             else
             {
-                ClaimsIdentity identity = new ClaimsIdentity
+                ClaimsIdentity identity = new
                     (
                         CookieAuthenticationDefaults.AuthenticationScheme,
                         ClaimTypes.Name,
                         ClaimTypes.Role
                     );
-                Claim claimName = new Claim(ClaimTypes.Name, apellido);
-                identity.AddClaim(claimName);
-                //Claim claimRole = new Claim(ClaimTypes.Role, idEmp );
-                //identity.AddClaim(claimRole);
+                Claim claimName = new(ClaimTypes.Name, apellido);
+                Claim claimRole = new(ClaimTypes.Role, empleado.Oficio!);
+                Claim claimIdUser = new("idUser", empleado.Id.ToString());
+                Claim claimIdDept = new("idDept", empleado.IdDepart.ToString());
 
-                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+                identity.AddClaim(claimName);
+                identity.AddClaim(claimRole);
+                identity.AddClaim(claimIdUser);
+                identity.AddClaim(claimIdDept);
+
+                ClaimsPrincipal principal = new(identity);
+
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                RedirectToAction("Index", "Empleados");
+
+                return RedirectToAction(TempData["action"]!.ToString(), TempData["controller"]!.ToString());
             }
+        }
+
+        public IActionResult ErrorAcceso()
+        {
             return View();
         }
 
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return View("Index", "Home");
+            return RedirectToAction("Index", "Empleados");
         }
     }
 }
