@@ -1,0 +1,9 @@
+﻿
+<h1>Iniciar Session</h1>
+<form asp-action="LogIn" method="post">
+    <input name="email" placeholder="Email" />
+    <input name="password" placeholder="Password" type="password" />
+    <span class="text-danger">@ViewData["MENSAJE"]</span>
+    <button type="submit">Log In</button>
+</form>
+

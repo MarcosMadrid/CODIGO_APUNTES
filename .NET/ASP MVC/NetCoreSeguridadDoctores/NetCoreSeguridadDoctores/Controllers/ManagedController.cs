@@ -35,13 +35,17 @@ namespace NetCoreSeguridadDoctores.Controllers
                         ClaimTypes.Role
                     );
 
-                Claim idDoctor = new("idDoctor", doctor.Id.ToString());
                 Claim idHospital = new("idHospital", doctor.HospitalId.ToString());
+                Claim idDoctor = new("idDoctor", doctor.Id.ToString());
                 Claim name = new(ClaimTypes.Name, doctor.HospitalId.ToString());
+                Claim salario = new("SALARIO", doctor.Salario.ToString());
+                Claim rol = new(ClaimTypes.Role, doctor.Especialidad ?? "");
 
-                identity.AddClaim(idDoctor);
                 identity.AddClaim(idHospital);
+                identity.AddClaim(idDoctor);
+                identity.AddClaim(salario);
                 identity.AddClaim(name);
+                identity.AddClaim(rol);
 
                 ClaimsPrincipal claimsPrincipal = new(identity);
 

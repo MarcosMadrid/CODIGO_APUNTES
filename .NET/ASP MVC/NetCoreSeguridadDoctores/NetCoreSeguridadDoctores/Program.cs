@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using NetCoreSeguridadDoctores.Data;
+using NetCoreSeguridadDoctores.Policies;
 using NetCoreSeguridadDoctores.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +12,17 @@ builder.Services.AddControllersWithViews(options => options.EnableEndpointRoutin
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 }).AddCookie();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("PERMISOSELEVADOS",
+        policy => policy.RequireRole("Psiquiatría", "Cardiología"));
+    options.AddPolicy("SOLO RICOS",
+        policy => policy.Requirements.Add(new OverSalarioRequirement()));
+});
 
 #region Sql Server
 connectionString = builder.Configuration.GetConnectionString("SqlServerHospital")!;

@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <button class="btn btn-primary" onclick="DownloadZip()">Descargar Zip</button>
+    <button class="btn btn-primary" onclick="DownloadFile()">Descargar Archivo</button>
+</div>
+
+@section Scripts {
+    <script>
+        function DownloadZip() {
+            window.location.href = '/Home/DownloadFileZip';
+        }
+
+        function DownloadFile() {
+            window.location.href = '/Home/DownloadFile';
+        }
+    </script>
+}

@@ -37,13 +37,13 @@
                             text: "Enfermo eliminado.",
                             icon: "success"
                         });                            
-                        $("#renderTableEnfermos").load("/Doctores/EnfermosPartialView");                                                               
-                    }).fail(function () {
+                        $("#renderTableEnfermos").load("/Doctores/EnfermosPartialView");
+                    }).fail(function (jqXHR, textStatus) {
                         Swal.fire({
                             icon: "error",
                             title: "Oops...",
                             text: "Something went wrong with the request!",
-                            footer: '<a href="#">Why do I have this issue?</a>'
+                            footer:jqXHR.status + " | " + textStatus,
                         });
                     });
                 }

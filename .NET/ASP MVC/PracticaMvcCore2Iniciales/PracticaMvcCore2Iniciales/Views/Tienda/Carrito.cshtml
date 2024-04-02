@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PracticaMvcCore2Iniciales.Models.Libro>
+
+@{
+    ViewData["Title"] = "Carrito";
+}
+
+<h1>Carrito</h1>
+@if(Model.Count() > 0)
+{
+<p>
+    <a class="btn btn-success" asp-action="CreatePedido" asp-controller="Tienda">Realizar Pedido</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<h3>PRECIO TOTAL: @ViewData["TOTAL"] $</h3>
+}else{
+    <h1> NO HAY PRODUCTOS EN EL CARRITO</h1>
+}
