@@ -1,0 +1,20 @@
+{
+  "ExtendedData": {
+    "inputs": [
+      "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "enableDataBinding": true,
+    "namespaceMappings": [
+      "*, CountryInfoService"
+    ],
+    "references": [
+      "Microsoft.Extensions.ObjectPool, {Microsoft.Extensions.ObjectPool, 6.0.16}"
+    ],
+    "targetFramework": "net8.0",
+    "typeReuseMode": "Specified"
+  }
+}

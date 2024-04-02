@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NetCoreSeguridadDoctores.Filters;
 using NetCoreSeguridadDoctores.Models;
 using NetCoreSeguridadDoctores.Repositories;
@@ -34,10 +35,11 @@ namespace NetCoreSeguridadDoctores.Controllers
             return PartialView("_EnfermosTable", enfermos);
         }
 
+        [AuthenFilterUser(Policy = "PERMISOSELEVADOS")]
         public async Task<IActionResult> DeleteEnfermo(string id)
         {
             Enfermo? enfermo = await repositoryHospital.GetEnfermo(id);
-            if(enfermo == null)
+            if (enfermo == null)
             {
                 return NotFound();
             }
@@ -50,6 +52,12 @@ namespace NetCoreSeguridadDoctores.Controllers
             {
                 return BadRequest();
             }
+        }
+
+        [AuthenFilterUser(Policy = "SOLO RICOS")]
+        public IActionResult SoloRicos()
+        {
+            return View();
         }
     }
 }
