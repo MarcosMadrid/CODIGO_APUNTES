@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.NET",
+    "\\.NET\\ASP MVC",
+    "\\.NET\\ASP MVC\\NetCoreSeguridadDoctores",
+    "\\.NET\\ASP MVC\\NetCoreSeguridadDoctores\\NetCoreSeguridadDoctores",
+    "\\.NET\\ASP MVC\\NetCoreSeguridadDoctores\\NetCoreSeguridadDoctores\\Filters"
   ],
   "PreviewInSolutionExplorer": false
 }
