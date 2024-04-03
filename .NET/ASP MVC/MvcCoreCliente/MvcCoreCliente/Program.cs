@@ -2,7 +2,10 @@ using MvcCoreCliente.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddTransient<ServiceCoches>();
+builder.Services.AddTransient<ServiceEscenas>();
 builder.Services.AddTransient<ServicesCountries>();
+builder.Services.AddTransient<MetodosVariosService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
