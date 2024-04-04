@@ -4,6 +4,19 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>NugetCocheMarcosM</PackageId>
+    <Title>Domigo de coches de choque</Title>
+    <Authors>Marcos</Authors>
+    <Description>Primer Nuget prueba</Description>
+    <PackageIcon>ford-mustang-gt-sports-car-supercar.jpg</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\Downloads\ford-mustang-gt-sports-car-supercar.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
