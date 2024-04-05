@@ -69,7 +69,8 @@ namespace ConsoleAppChollometro.Repositories
 
         public async Task PopulateChollosAzure()
         {
-            this.cholloContext.Chollos.RemoveRange();
+            cholloContext.Chollos.RemoveRange(cholloContext.Chollos);
+            await this.cholloContext.SaveChangesAsync();
             List<Chollo> chollos = await this.GetChollosWebAsync();
             foreach (Chollo item in chollos)
             {

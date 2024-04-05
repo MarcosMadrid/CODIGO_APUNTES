@@ -21,6 +21,7 @@ namespace MvcCoreChollometro.Controllers
         {
             List<Chollo> chollos = await repositoryChollometro.GetChollosAsync();
             chollos = chollos.OrderByDescending(x => x.Fecha).ToList();
+            ViewData["ELEMENTOS"] = chollos.Count();
             return View(chollos);
         }
 

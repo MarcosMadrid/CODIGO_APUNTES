@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiHospitalesNet", "ApiHospitalesNet\ApiHospitalesNet.csproj", "{8150688A-C63D-4C78-BC98-EF3D5171BF56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationHospital", "WebApplicationHospital\WebApplicationHospital.csproj", "{5DBAFEA6-06E7-4629-841E-A07139FCB341}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8150688A-C63D-4C78-BC98-EF3D5171BF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8150688A-C63D-4C78-BC98-EF3D5171BF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8150688A-C63D-4C78-BC98-EF3D5171BF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8150688A-C63D-4C78-BC98-EF3D5171BF56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DBAFEA6-06E7-4629-841E-A07139FCB341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DBAFEA6-06E7-4629-841E-A07139FCB341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DBAFEA6-06E7-4629-841E-A07139FCB341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DBAFEA6-06E7-4629-841E-A07139FCB341}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D563214E-C67D-40EC-913D-4192D3712052}
+	EndGlobalSection
+EndGlobal
