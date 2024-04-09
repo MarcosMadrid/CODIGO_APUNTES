@@ -7,6 +7,7 @@ namespace WebApplicationMVCEmpleados.Services
     {
         private MediaTypeWithQualityHeaderValue Header;
         private readonly string urlApiEmpleados;
+
         public ServiceEmpleados(IConfiguration configuration)
         {
             this.urlApiEmpleados = configuration.GetValue<string>("ApiUrls:ApiEmpleados")!;
