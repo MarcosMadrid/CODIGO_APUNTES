@@ -1,0 +1,9 @@
+﻿@if(User.Identity.IsAuthenticated){
+    <div class="d-flex">
+        <a asp-action="Logout" asp-controller="Managed" class="btn btn-danger">Log Out</a>
+        @User.Identity.Name
+    </div>
+}
+else{
+    <a asp-action="Index" asp-controller="Empleados" class="btn btn-primary">Log In</a>
+}

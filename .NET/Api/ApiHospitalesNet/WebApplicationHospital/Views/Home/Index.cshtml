@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ApiHospitalesNet.Models.Hospital>
+
+@{
+    ViewData["Title"] = "Index";
+    string domainUrlApi = ViewData["HostApiHospital"].ToString();
+}
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#btnReloadHospitales").click(function () {
+                var apiurl = '@domainUrlApi';
+                var query = "/api/Hospitales";
+
+                $.ajax({
+                    url: apiurl + query,
+                    method: "GET",
+                    success: function (data) {
+                        var html = "";
+                        $.each(data, function (index, hospital) {
+                            html += "<tr>";
+                            html += "<td>" + hospital.id + "</td>";
+                            html += "<td>" + hospital.nombre + "</td>";
+                            html += "<td>" + hospital.direccion + "</td>";
+                            html += "<td>" + hospital.telefono + "</td>";
+                            html += "<td>" + hospital.camas + "</td>";
+                            html += "<td><a href='/Home/Details/" + hospital.id + "'>Details</a></td>";
+                            html += "</tr>";
+                        });
+                        $("#tableHospitales tbody").html(html);
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+<h1>Index</h1>
+
+<p>
+    <button class="btn btn-dark" id="btnReloadHospitales" >Reload Hospitales</button>
+</p>
+<table class="table" id="tableHospitales">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Camas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Camas)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id=item.Id })                 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcCoreCliente", "MvcCoreCliente\MvcCoreCliente.csproj", "{6BEB602E-283E-48D6-9386-1AC7966B4B67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcCoreCliente", "MvcCoreCliente\MvcCoreCliente.csproj", "{6BEB602E-283E-48D6-9386-1AC7966B4B67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCrudCoreDoctores", "ApiCrudCoreDoctores\ApiCrudCoreDoctores.csproj", "{86318B5E-24C9-41E8-A0A4-9082D2B5E778}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6BEB602E-283E-48D6-9386-1AC7966B4B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BEB602E-283E-48D6-9386-1AC7966B4B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BEB602E-283E-48D6-9386-1AC7966B4B67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86318B5E-24C9-41E8-A0A4-9082D2B5E778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86318B5E-24C9-41E8-A0A4-9082D2B5E778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86318B5E-24C9-41E8-A0A4-9082D2B5E778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86318B5E-24C9-41E8-A0A4-9082D2B5E778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

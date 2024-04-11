@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ApiCoreCrudDepartamentos.Models.Departamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form id="deptForm">
+    
+    <label for="IdDepartamento" class="control-label">IdDepartamento</label>
+    <input id="IdDepartamento" name="idDepartamento" class="form-control" required/>                
+    
+    <label for="Nombre" class="control-label">Nombre</label>
+    <input id="Nombre" name="nombre" class="form-control" required />                
+    
+    <label for="Localidad" class="control-label">Localidad</label>
+    <input id="Localidad" name="localidad" class="form-control" required/>            
+        
+    <button type="submit" class="btn btn-primary"> Crear </button>
+    <button type="submit" class="btn btn-secondary"> Editar </button
+</form> 
+
+<div id="tableDeptContainer">
+    @await Html.PartialAsync("_TableDept")
+</div>
+
+
+@section Scripts{
+    <script>
+        var urlApiDept = '@Configuration["ApiUrls:ApiDepartamentos"]';
+        $(document).ready(function () {
+
+            $('#deptForm').submit(function (event) {                
+                FormSubmit(event);
+            });            
+        });
+
+        function FormSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            const dataObject = Object.fromEntries(data.entries());
+            const formJSON = JSON.stringify(dataObject);
+            CreateDept(formJSON, CallTableDept);
+        };
+
+        function CallTableDept(){
+            var request = "/Departamentos/TableDept";
+            $.ajax({
+                url:  request,
+                type: "GET",
+                success: function (view) {
+                    console.log(view)
+                    $("#tableDeptContainer").html(view);
+                }
+            })
+        }
+
+    </script>
+}

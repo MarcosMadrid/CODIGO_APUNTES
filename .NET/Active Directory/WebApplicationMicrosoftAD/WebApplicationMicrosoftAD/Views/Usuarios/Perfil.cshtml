@@ -1,0 +1,13 @@
+﻿@using System.Security.Claims
+<h1 style="color:blue">
+    Hola!, @UserManager.
+</h1>
+<hr />
+<ul class="list-group">
+    @foreach(Claim claim in User.Claims)
+    {
+        <li class="list-group-item">
+            @claim.Type | @claim.Value
+        </li>
+    }
+</ul>
