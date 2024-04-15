@@ -3,8 +3,10 @@
     "",
     "\\.NET",
     "\\.NET\\Api",
-    "\\.NET\\Api\\ApiCoreCrudDepartamentos-master"
+    "\\.NET\\Api\\WebApplicationEmpleadosOauth",
+    "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth",
+    "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth\\Services"
   ],
-  "SelectedNode": "\\.NET\\Api\\ApiCoreCrudDepartamentos-master\\ApiCoreCrudDepartamentos.sln",
+  "SelectedNode": "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth\\Services\\ServiceApiOAuthEmpleados.cs",
   "PreviewInSolutionExplorer": false
 }
