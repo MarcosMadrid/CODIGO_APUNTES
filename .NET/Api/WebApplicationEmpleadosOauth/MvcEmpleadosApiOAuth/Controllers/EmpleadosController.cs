@@ -5,6 +5,7 @@ using WebApplicationEmpleadosOauth.Models;
 
 namespace MvcEmpleadosApiOAuth.Controllers
 {
+    [AuthorizeEmpFilter]
     public class EmpleadosController : Controller
     {
         private IServiceEmpleados serviceEmpleados;
@@ -13,24 +14,22 @@ namespace MvcEmpleadosApiOAuth.Controllers
         {
             this.serviceEmpleados = serviceEmpleados;
         }
-        
-        [AuthorizeEmpFilter]
+
         public async Task<IActionResult> Index()
         {
             List<Empleado>? empleados = await serviceEmpleados.GetEmpleados();
             return View(empleados);
         }
 
-        [AuthorizeEmpFilter]
+        public async Task<IActionResult> ListEmpleadosDept()
+        {
+            List<Empleado>? empleados = await serviceEmpleados.GetEmpleadosDeptUser();
+            return View("Index", empleados);
+        }
+
         public async Task<IActionResult> Details(int id)
         {
-            string? token = HttpContext.Session.GetString("token");
-            if (token is null)
-            {
-                ViewData["MENSAJE"] = "Debe iniciar sesión";
-                return View();
-            }
-            Empleado? emp = await serviceEmpleados.GetEmpleado(id, token);
+            Empleado? emp = await serviceEmpleados.GetEmpleado(id);
             return View(emp);
         }
     }

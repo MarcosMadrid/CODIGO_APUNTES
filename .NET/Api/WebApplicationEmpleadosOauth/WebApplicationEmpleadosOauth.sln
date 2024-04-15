@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationEmpleadosOauth", "WebApplicationEmpleadosOauth\WebApplicationEmpleadosOauth.csproj", "{7B1ECD14-97B8-4285-AEC0-E8BB5F8514B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiEmpleadosOauth", "WebApplicationEmpleadosOauth\ApiEmpleadosOauth.csproj", "{7B1ECD14-97B8-4285-AEC0-E8BB5F8514B8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppApiEmpleadosHospital", "ConsoleAppApiEmpleadosHospital\ConsoleAppApiEmpleadosHospital.csproj", "{2FC78ECD-1981-46A0-815C-4E7E20A6F2C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcEmpleadosApiOAuth", "MvcEmpleadosApiOAuth\MvcEmpleadosApiOAuth.csproj", "{AE5DEA9F-BB36-4C15-9CE9-9338DD5A9934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcEmpleadosApiOAuth", "MvcEmpleadosApiOAuth\MvcEmpleadosApiOAuth.csproj", "{AE5DEA9F-BB36-4C15-9CE9-9338DD5A9934}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

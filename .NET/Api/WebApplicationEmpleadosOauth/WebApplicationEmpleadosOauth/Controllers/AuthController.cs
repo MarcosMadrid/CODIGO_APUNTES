@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text.Json.Serialization;
 using WebApplicationEmpleadosOauth.Helpers;
 using WebApplicationEmpleadosOauth.Models;
 using WebApplicationEmpleadosOauth.Repositories;
@@ -30,8 +33,14 @@ namespace WebApplicationEmpleadosOauth.Controllers
             }
             else
             {
+                string jsonEmp = JsonConvert.SerializeObject(empleado);
+                Claim[] claims = new[]
+                {
+                    new Claim("UserData", jsonEmp)
+                };
                 SigningCredentials credentials = new SigningCredentials(this.helperOauth.GetKeyToken(), SecurityAlgorithms.HmacSha256);
                 JwtSecurityToken token = new JwtSecurityToken(
+                    claims: claims,
                     issuer: helperOauth.Issuer,
                     audience: helperOauth.Audience,
                     signingCredentials: credentials,

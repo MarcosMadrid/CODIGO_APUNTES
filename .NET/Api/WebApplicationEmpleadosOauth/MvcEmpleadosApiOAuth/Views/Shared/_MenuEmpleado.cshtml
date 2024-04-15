@@ -1,7 +1,14 @@
-﻿@if(User.Identity.IsAuthenticated){
+﻿@using System.Security.Claims
+
+@if(User.Identity.IsAuthenticated){
     <div class="d-flex">
         <a asp-action="Logout" asp-controller="Managed" class="btn btn-danger">Log Out</a>
-        @User.Identity.Name
+        <a asp-action="Details" 
+            asp-controller="Empleados" 
+            asp-route-id="@User!.FindFirst(x => x.Type == ClaimTypes.NameIdentifier)!.Value" 
+            class="btn btn-primary"> 
+            USER | @User.Identity.Name
+        </a>
     </div>
 }
 else{
