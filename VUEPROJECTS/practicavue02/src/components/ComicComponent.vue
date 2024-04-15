@@ -7,7 +7,7 @@
             <p class="card-text">{{ this.comic.descripcion }}</p>  
             <h3 :class="{rojo: this.comic.year <=200, verde: this.comic.year > 200}">{{this.comic.year}}</h3>      
             <button class="btn btn-success" @click="Handle_Favorito" >Favorito</button>    
-            <button class="btn btn-danger" @click="Handle_Eliminar" >Eliminar</button>   
+            <button class="btn btn-danger" @click="Handle_Eliminar()" >Eliminar</button>   
             <router-link class="btn btn-primary" :to="'/ComicDetalles/'+this.comic.titulo" >Detalles</router-link>                
         </div>
     </div>
