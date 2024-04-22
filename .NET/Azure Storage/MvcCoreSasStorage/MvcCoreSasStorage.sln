@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcCoreSasStorage", "MvcCoreSasStorage\MvcCoreSasStorage.csproj", "{F83AFD7F-7B2C-449E-9DB5-B0260B29D7EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiStorageTokens", "..\ApiStorageTokens\ApiStorageTokens\ApiStorageTokens.csproj", "{4946BB72-EA92-4210-986C-1E6E02C41CA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F83AFD7F-7B2C-449E-9DB5-B0260B29D7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F83AFD7F-7B2C-449E-9DB5-B0260B29D7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F83AFD7F-7B2C-449E-9DB5-B0260B29D7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F83AFD7F-7B2C-449E-9DB5-B0260B29D7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4946BB72-EA92-4210-986C-1E6E02C41CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4946BB72-EA92-4210-986C-1E6E02C41CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4946BB72-EA92-4210-986C-1E6E02C41CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4946BB72-EA92-4210-986C-1E6E02C41CA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A81AEE63-6948-470F-93AA-C3E42D421C27}
+	EndGlobalSection
+EndGlobal

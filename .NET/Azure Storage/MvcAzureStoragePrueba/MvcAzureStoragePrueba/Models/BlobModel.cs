@@ -1,4 +1,4 @@
-﻿namespace MvcAzureStorageBlobs.Models
+﻿namespace MvcAzureStoragePrueba.Models
 {
     public class BlobModel
     {
