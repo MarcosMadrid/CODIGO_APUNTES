@@ -1,0 +1,22 @@
+﻿@model List<string>
+
+<a asp-action="CreateContainer" class="btn btn-success">
+    Create Container
+</a>
+    <ul class="list-group">
+    @foreach(string containerName in Model)
+    {
+    <li class="list-group-item list-group-item-info">
+        <div class="row">
+            <div class="col-11 float-start">
+                @containerName
+            </div>
+            <div class="col-1 float-end justify-content-end">
+                    <a asp-action="DeleteContainer" asp-route-containerName="@containerName" class="btn btn-danger">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </li>    
+    }
+</ul>

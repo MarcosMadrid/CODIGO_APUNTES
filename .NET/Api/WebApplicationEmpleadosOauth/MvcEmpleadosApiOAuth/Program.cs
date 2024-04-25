@@ -11,6 +11,7 @@ builder.Services.AddAuthentication(options =>
 }).AddCookie();
 
 builder.Services.AddControllersWithViews(options => options.EnableEndpointRouting = false);
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<IServiceEmpleados, ServiceApiOAuthEmpleados>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>

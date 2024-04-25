@@ -31,8 +31,7 @@ namespace MvcEmpleadosApiOAuth.Controllers
             }
             else
             {
-                ViewData["MENSAJE"] = "Logged";
-                HttpContext.Session.SetString("token", token);
+                ViewData["MENSAJE"] = "Logged";                
                 ClaimsIdentity identity = new ClaimsIdentity(
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     ClaimTypes.Name,
@@ -40,6 +39,7 @@ namespace MvcEmpleadosApiOAuth.Controllers
                 );
                 identity.AddClaim(new Claim(ClaimTypes.Name, loginModel.UserName));
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, loginModel.Password));
+                identity.AddClaim(new Claim("token", token));
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(
                     CookieAuthenticationDefaults.AuthenticationScheme,

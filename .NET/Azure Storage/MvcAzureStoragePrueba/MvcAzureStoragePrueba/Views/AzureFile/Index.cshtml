@@ -1,0 +1,30 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a asp-action="UploadFile">Create File</a>
+@if(Model != null)
+{
+<div class="text-center">
+    <ul class="list-group">
+        @foreach(string name in Model)
+        {
+            <li class="list-group-item">
+                @name | 
+                <a  asp-action="ReadFile" asp-route-fileName="@name" class="btn btn-info">
+                    Read File
+                </a>
+                <a asp-action="DeleteFile" asp-route-fileName="@name" class="btn btn-danger">
+                    Delete File
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+}
+else
+{
+    <h2>Vacio</h2>
+}

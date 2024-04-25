@@ -1,6 +1,8 @@
 using ApiHospitalesNet.Data;
 using ApiHospitalesNet.Repositories;
+using Azure.Security.KeyVault.Secrets;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Azure;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +12,20 @@ string connectionString = string.Empty;
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
+// Add services to the container.
+builder.Services.AddAzureClients(factory =>
+{
+    factory.AddSecretClient
+    (builder.Configuration.GetSection("KeyVault"));
+});
+
+//DEBEMOS PODER RECUPERAR UN OBJETO INYECTADO EN CLASES 
+//QUE NO TIENEN CONSTRUCTOR
+SecretClient secretClient = builder.Services.BuildServiceProvider().GetService<SecretClient>()!;
+KeyVaultSecret secret = await secretClient.GetSecretAsync("secreto1-prueba");
+connectionString = secret.Value;
+
 #region SQLServer Connection
-connectionString = builder.Configuration.GetConnectionString("SqlServerHospital")!;
 builder.Services.AddTransient<RepositoryHospital>();
 builder.Services.AddDbContext<HospitalContext>(options =>
 {

@@ -19,6 +19,14 @@ namespace WebApplicationEmpleadosOauth.Repositories
                 await hospitalContext.Empleados.ToListAsync();
         }
 
+        public async Task<List<Empleado>?> GetEmpleadosDept(int idDept)
+        {
+            return 
+                await hospitalContext.Empleados
+                    .Where(emp => emp.IdDept.Equals(idDept))
+                    .ToListAsync();
+        }
+
         public async Task<Empleado?> GetEmpleado(int id)
         {
             return

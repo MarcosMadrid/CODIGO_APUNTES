@@ -3,10 +3,11 @@
     "",
     "\\.NET",
     "\\.NET\\Api",
-    "\\.NET\\Api\\WebApplicationEmpleadosOauth",
     "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth",
-    "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth\\Services"
+    "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth\\Services",
+    "\\.NET\\Azure Storage",
+    "\\.NET\\Azure Storage\\MvcAzureStoragePrueba"
   ],
-  "SelectedNode": "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth\\Services\\ServiceApiOAuthEmpleados.cs",
+  "SelectedNode": "\\.NET\\Azure Storage\\MvcAzureStoragePrueba\\MvcAzureStoragePrueba.sln",
   "PreviewInSolutionExplorer": false
 }

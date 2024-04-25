@@ -45,7 +45,7 @@ export default class CreateApuesta extends Component{
                 </div>
                 <div className="mb-3">
                     <label htmlFor="input_atletico" className="form-label">ATLETICO</label>
-                    <input type="text" className="form-control" id="input_atletico" aria-describedby="input_atletico    "/>
+                    <input type="text" className="form-control" id="input_atletico" aria-describedby="input_atletico"/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="input_realMadrid" className="form-label">REAL MADRID</label>
@@ -55,7 +55,9 @@ export default class CreateApuesta extends Component{
                     <label htmlFor="input_fecha" className="form-label">FECHA</label>
                     <input type="date" className="form-control" id="input_fecha" aria-describedby="input_fecha"/>
                 </div>
-                <button type="submit" className="btn btn-success">Añadir</button>
+                <button type="submit" className="btn btn-success">
+                    Añadir
+                </button>
             </form>
             </div>
         </div>);

@@ -6,8 +6,9 @@ namespace MvcEmpleadosApiOAuth.Services
     {
         Task<string?> GetToken(string username, string password);
         Task<T?> GetApiResponse<T>(string request);
-        Task<T?> GetApiResponse<T>(string request, string token);
         Task<List<Empleado>?> GetEmpleados();
-        Task<Empleado?> GetEmpleado(int id, string token);
+        Task<Empleado?> GetEmpleado(int id);
+        Task<Empleado?> GetPerfil();
+        Task<List<Empleado>?> GetEmpleadosDeptUser();
     }
 }

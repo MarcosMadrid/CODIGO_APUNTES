@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -12,10 +13,11 @@ namespace MvcEmpleadosApiOAuth.Services
         private MediaTypeWithQualityHeaderValue mediaType;
         private string? token;
 
-        public ServiceApiOAuthEmpleados(IConfiguration configuration)
+        public ServiceApiOAuthEmpleados(IConfiguration configuration, IHttpContextAccessor httpContext)
         {
             this.ApiUrl = configuration.GetValue<string>("UrlsApi:ApiOAuthEmp")!;
             mediaType = new MediaTypeWithQualityHeaderValue("application/json");
+            this.token = httpContext.HttpContext!.User!.FindFirst(x => x.Type == "token")?.Value;
         }
 
         public async Task<string?> GetToken(string username, string password)
@@ -37,7 +39,8 @@ namespace MvcEmpleadosApiOAuth.Services
                 if (httpResponse.IsSuccessStatusCode)
                 {
                     JObject keys = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
-                    return keys.GetValue("response")!.ToString();
+                    token = keys.GetValue("response")!.ToString();
+                    return token;
                 }
                 else
                 {
@@ -46,25 +49,11 @@ namespace MvcEmpleadosApiOAuth.Services
             }
         }
 
-        public async Task<T?> GetApiResponse<T>(string request, string token)
+        public async Task<Empleado?> GetPerfil()
         {
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(mediaType);
-                client.DefaultRequestHeaders.Add("Authorization", "bearer " + token);
-                client.BaseAddress = new Uri(this.ApiUrl);
-                HttpResponseMessage httpResponse = await client.GetAsync(request);
-                if (httpResponse.IsSuccessStatusCode)
-                {
-                    T data = await httpResponse.Content.ReadAsAsync<T>();
-                    return data;
-                }
-                else
-                {
-                    return default(T);
-                }
-            }
+            string request = "/api/Empleado/GetProfile";
+            Empleado? emp = await GetApiResponse<Empleado>(request);
+            return emp;
         }
 
         public async Task<T?> GetApiResponse<T>(string request)
@@ -73,6 +62,7 @@ namespace MvcEmpleadosApiOAuth.Services
             {
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(mediaType);
+                client.DefaultRequestHeaders.Add("Authorization", "bearer " + token);
                 client.BaseAddress = new Uri(this.ApiUrl);
                 HttpResponseMessage httpResponse = await client.GetAsync(request);
                 if (httpResponse.IsSuccessStatusCode)
@@ -94,11 +84,26 @@ namespace MvcEmpleadosApiOAuth.Services
                 await GetApiResponse<List<Empleado>>(request);
         }
 
-        public async Task<Empleado?> GetEmpleado(int id, string token)
+        public async Task<List<Empleado>?> GetEmpleadosDept()
+        {
+            string request = "/api/Empleados/GetProfile";
+            return
+                await GetApiResponse<List<Empleado>>(request);
+        }
+
+
+        public async Task<Empleado?> GetEmpleado(int id)
         {
             string request = "/api/Empleados/GetEmpleado/" + id;
             return
-                await GetApiResponse<Empleado>(request, token);
+                await GetApiResponse<Empleado>(request);
+        }
+
+        public async Task<List<Empleado>?> GetEmpleadosDeptUser()
+        {
+            string request = "/api/Empleados/GetEmpleadosDeptUser";
+            return
+                await GetApiResponse<List<Empleado>>(request);
         }
     }
 }
