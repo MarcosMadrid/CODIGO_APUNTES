@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MvcCoreSasStorage.Models.Alumno>
+
+@{
+    ViewData["Title"] = "ListAlumnos";
+}
+
+<h1>ListAlumnos</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if(Model != null)
+{
+    
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model._IdAlumno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAlumno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartitionKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RowKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item._IdAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartitionKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RowKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timestamp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+}

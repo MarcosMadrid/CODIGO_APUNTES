@@ -1,0 +1,66 @@
+﻿@using Newtonsoft.Json
+@model IEnumerable<MvcCoreCacheRedis.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+    List<Producto>? productosFav = null;
+    if(ViewData["fav"] != null)
+    {
+        productosFav = ViewData["fav"] as List<Producto>;
+    }
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                    @if (productosFav != null)
+                    {
+                        @if(productosFav.FirstOrDefault(prod => prod.IdProducto.Equals(item.IdProducto)) != null)
+                        {                            
+                            @Html.ActionLink("Delete", "Delete", new { id=item.IdProducto })
+                        }
+                        else
+                        {                            
+                            @Html.ActionLink("AñadirFav", "AddFav", new { id=item.IdProducto })
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("AñadirFav", "AddFav", new { id = item.IdProducto })
+                    }
+                    @Html.ActionLink("Details", "Details", new { id=item.IdProducto } ) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

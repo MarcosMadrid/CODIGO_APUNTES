@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\.NET",
-    "\\.NET\\Api",
-    "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth",
-    "\\.NET\\Api\\WebApplicationEmpleadosOauth\\MvcEmpleadosApiOAuth\\Services",
-    "\\.NET\\Azure Storage",
-    "\\.NET\\Azure Storage\\MvcAzureStoragePrueba"
+    ""
   ],
-  "SelectedNode": "\\.NET\\Azure Storage\\MvcAzureStoragePrueba\\MvcAzureStoragePrueba.sln",
   "PreviewInSolutionExplorer": false
 }
