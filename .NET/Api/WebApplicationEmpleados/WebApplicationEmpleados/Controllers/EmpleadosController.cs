@@ -4,7 +4,7 @@ using WebApplicationEmpleados.Repositories;
 
 namespace WebApplicationEmpleados.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("data/[action]")]
     [ApiController]
     public class EmpleadosController : ControllerBase
     {

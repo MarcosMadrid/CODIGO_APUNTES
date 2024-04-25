@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCoreCrudDepartamentos.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[action]")]
     [ApiController]
     public class DepartamentosController : ControllerBase
     {

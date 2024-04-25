@@ -15,11 +15,12 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "Api Departamentos",
-        Description = "Api crud de Departamentos"
+        Description = "Api crud de Departamentos",
+        Version = "v1"
     });
 });
 
-string connectionString = builder.Configuration.GetConnectionString("SqlAzure");
+string connectionString = builder.Configuration.GetConnectionString("SqlAzure")!;
 builder.Services.AddTransient<RepositoryDepartamentos>();
 builder.Services.AddDbContext<DepartamentoContext>(options => options.UseSqlServer(connectionString));
 
