@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\.NET",
-    "\\.NET\\Api",
-    "\\.NET\\Api\\WebApplicationEmpleados"
+    ""
   ],
-  "SelectedNode": "\\.NET\\Api\\WebApplicationEmpleados\\WebApplicationEmpleados.sln",
+  "SelectedNode": "\\ConsoleAppChollometro.sln",
   "PreviewInSolutionExplorer": false
 }

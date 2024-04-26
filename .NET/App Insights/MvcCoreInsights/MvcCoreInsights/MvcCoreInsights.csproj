@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationInsightsResourceId>/subscriptions/6d160407-a4e1-4e72-9b6e-5ba6e7654e7c/resourceGroups/rg-logicapp/providers/microsoft.insights/components/analisisdonativos</ApplicationInsightsResourceId>
+    <UserSecretsId>e598b0e3-2f6c-4cdb-9b37-acf5c5fac26a</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.TraceListener" Version="2.22.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.Web" Version="2.22.0" />
+  </ItemGroup>
+
+</Project>
