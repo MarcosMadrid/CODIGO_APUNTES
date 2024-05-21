@@ -1,0 +1,21 @@
+﻿@model List<string>?
+
+
+<form method="post" asp-action="UploadFile" asp-controller="Home" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <button type="submit"> Send </button>
+    </form>
+<ul>
+    @if(Model != null)
+    {        
+        @foreach(string key in Model)
+        {
+            <li>
+                <img src="@BucketName/@key" />
+                @key
+                <a asp-action="DeleteFile" asp-route-fileName="@key">Delete</a>
+                <a asp-action="GetPrivate" asp-route-fileName="@key">GetPrivate</a>
+            </li>
+        }
+    }
+</ul>

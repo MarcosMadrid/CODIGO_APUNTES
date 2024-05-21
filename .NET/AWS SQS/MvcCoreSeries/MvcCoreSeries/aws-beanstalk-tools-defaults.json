@@ -1,0 +1,20 @@
+
+{
+    "region" : "us-east-1",
+    "configuration" : "Debug",
+    "framework"     : "net8.0",
+    "self-contained" : true,
+    "application"    : "MvcCoreSeries",
+    "environment"    : "MvcCoreSeries-dev",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-0c2812ad8d8386780\";\"aws:ec2:vpc,Subnets\"=\"subnet-001e2e06f4ff2ca4c\"",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.7.1 running .NET Core",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "mvccoreseries-dev-mmb",
+    "instance-type"        : "t3a.medium",
+    "key-pair"             : "key-linux-server",
+    "instance-profile"     : "ec2-beanstalk-allow",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "proxy-server"         : "nginx"
+}

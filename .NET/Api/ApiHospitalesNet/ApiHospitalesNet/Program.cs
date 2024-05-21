@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 // Add services to the container.
-builder.Services.AddAzureClients(factory =>
+builder.Services.AddAzureC lients(factory =>
 {
     factory.AddSecretClient
     (builder.Configuration.GetSection("KeyVault"));

@@ -12,8 +12,6 @@ builder.Services.AddOpenApiDocument(document =>
 {
     document.Title = "Api TechRiders";
     document.Description = "Api TechRiders.  Proyecto Alumnos 2023";
-    // CONFIGURAMOS LA SEGURIDAD JWT PARA SWAGGER,
-    // PERMITE AÑADIR EL TOKEN JWT A LA CABECERA.
     document.AddSecurity("JWT", Enumerable.Empty<string>(),
         new NSwag.OpenApiSecurityScheme
         {
