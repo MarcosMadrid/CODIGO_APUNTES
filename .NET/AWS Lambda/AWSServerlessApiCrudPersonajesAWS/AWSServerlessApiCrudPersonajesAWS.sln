@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSServerlessApiCrudPersonajesAWS", "AWSServerlessApiCrudPersonajesAWS\AWSServerlessApiCrudPersonajesAWS.csproj", "{EB532E20-EB14-401B-B044-85BB49E59DCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB532E20-EB14-401B-B044-85BB49E59DCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB532E20-EB14-401B-B044-85BB49E59DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB532E20-EB14-401B-B044-85BB49E59DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB532E20-EB14-401B-B044-85BB49E59DCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E208EFEA-B8EA-4F26-8170-4333FBE2892F}
+	EndGlobalSection
+EndGlobal

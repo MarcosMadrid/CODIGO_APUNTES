@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.NET"
+    "\\.NET",
+    "\\.NET\\AWS Lambda"
   ],
+  "SelectedNode": "\\.NET\\AWS Lambda\\AWSServerlessFirst",
   "PreviewInSolutionExplorer": false
 }
