@@ -29,89 +29,89 @@ public class Functions
         return HttpResults.Ok(await contextPersonajes.Personaje.ToListAsync());
     }
 
-    [LambdaFunction]
-    [RestApi(LambdaHttpMethod.Get, "/FindPersonaje/{id}")]
-    public async Task<IHttpResult> FindPersonaje(string id, ILambdaContext context)
-    {
-        if (contextPersonajes.Personaje == null)
-        {
-            return HttpResults.NotFound();
-        }
-        var personaje = await contextPersonajes.Personaje.FindAsync(id);
+    //[LambdaFunction]
+    //[RestApi(LambdaHttpMethod.Get, "/FindPersonaje/{id}")]
+    //public async Task<IHttpResult> FindPersonaje(string id, ILambdaContext context)
+    //{
+    //    if (contextPersonajes.Personaje == null)
+    //    {
+    //        return HttpResults.NotFound();
+    //    }
+    //    var personaje = await contextPersonajes.Personaje.FindAsync(id);
 
-        if (personaje == null)
-        {
-            return HttpResults.NotFound();
-        }
+    //    if (personaje == null)
+    //    {
+    //        return HttpResults.NotFound();
+    //    }
 
-        return HttpResults.Ok(personaje);
-    }
+    //    return HttpResults.Ok(personaje);
+    //}
 
-    [LambdaFunction]
-    [RestApi(LambdaHttpMethod.Put, "/Put/{id}")]
-    public async Task<IHttpResult> Put(int id, [FromBody] Personaje personaje, ILambdaContext context)
-    {
-        if (id != personaje.IdPersonaje)
-        {
-            return HttpResults.BadRequest();
-        }
+    //[LambdaFunction]
+    //[RestApi(LambdaHttpMethod.Put, "/Put/{id}")]
+    //public async Task<IHttpResult> Put(int id, [FromBody] Personaje personaje, ILambdaContext context)
+    //{
+    //    if (id != personaje.IdPersonaje)
+    //    {
+    //        return HttpResults.BadRequest();
+    //    }
 
-        contextPersonajes.Entry(personaje).State = EntityState.Modified;
+    //    contextPersonajes.Entry(personaje).State = EntityState.Modified;
 
-        try
-        {
-            await contextPersonajes.SaveChangesAsync();
-            return HttpResults.Ok(personaje);
-        }
-        catch (DbUpdateConcurrencyException ex)
-        {
-            if (!PersonajeExists(id))
-            {
-                return HttpResults.NotFound();
-            }
-            else
-            {
-                return HttpResults.BadRequest(ex.Message);
-            }
-        }
-    }
+    //    try
+    //    {
+    //        await contextPersonajes.SaveChangesAsync();
+    //        return HttpResults.Ok(personaje);
+    //    }
+    //    catch (DbUpdateConcurrencyException ex)
+    //    {
+    //        if (!PersonajeExists(id))
+    //        {
+    //            return HttpResults.NotFound();
+    //        }
+    //        else
+    //        {
+    //            return HttpResults.BadRequest(ex.Message);
+    //        }
+    //    }
+    //}
 
-    [LambdaFunction]
-    [RestApi(LambdaHttpMethod.Post, "/Post")]
-    public async Task<IHttpResult> Post([FromBody] Personaje personaje, ILambdaContext context)
-    {
-        if (contextPersonajes.Personaje == null)
-        {
-            return HttpResults.BadRequest("Entity set 'ApiPersonajesAWSContext.Personaje'  is null.");
-        }
-        contextPersonajes.Personaje.Add(personaje);
-        await contextPersonajes.SaveChangesAsync();
+    //[LambdaFunction]
+    //[RestApi(LambdaHttpMethod.Post, "/Post")]
+    //public async Task<IHttpResult> Post([FromBody] Personaje personaje, ILambdaContext context)
+    //{
+    //    if (contextPersonajes.Personaje == null)
+    //    {
+    //        return HttpResults.BadRequest("Entity set 'ApiPersonajesAWSContext.Personaje'  is null.");
+    //    }
+    //    contextPersonajes.Personaje.Add(personaje);
+    //    await contextPersonajes.SaveChangesAsync();
 
-        return HttpResults.Created("GetPersonaje", personaje);
-    }
+    //    return HttpResults.Created("GetPersonaje", personaje);
+    //}
 
-    [LambdaFunction]
-    [RestApi(LambdaHttpMethod.Delete, "/Delete/{id}")]
-    public async Task<IHttpResult> Delete(int id, ILambdaContext context)
-    {
-        if (contextPersonajes.Personaje == null)
-        {
-            return HttpResults.NotFound();
-        }
-        var personaje = await contextPersonajes.Personaje.FindAsync(id);
-        if (personaje == null)
-        {
-            return HttpResults.NotFound();
-        }
+    //[LambdaFunction]
+    //[RestApi(LambdaHttpMethod.Delete, "/Delete/{id}")]
+    //public async Task<IHttpResult> Delete(int id, ILambdaContext context)
+    //{
+    //    if (contextPersonajes.Personaje == null)
+    //    {
+    //        return HttpResults.NotFound();
+    //    }
+    //    var personaje = await contextPersonajes.Personaje.FindAsync(id);
+    //    if (personaje == null)
+    //    {
+    //        return HttpResults.NotFound();
+    //    }
 
-        contextPersonajes.Personaje.Remove(personaje);
-        await contextPersonajes.SaveChangesAsync();
+    //    contextPersonajes.Personaje.Remove(personaje);
+    //    await contextPersonajes.SaveChangesAsync();
 
-        return HttpResults.Ok();
-    }
+    //    return HttpResults.Ok();
+    //}
 
-    private bool PersonajeExists(int id)
-    {
-        return (contextPersonajes.Personaje?.Any(e => e.IdPersonaje == id)).GetValueOrDefault();
-    }
+    //private bool PersonajeExists(int id)
+    //{
+    //    return (contextPersonajes.Personaje?.Any(e => e.IdPersonaje == id)).GetValueOrDefault();
+    //}
 }
